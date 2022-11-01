@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/cleanroom-schema/entries/">
+        <link rel="canonical" href="https://microbiomedata.github.io/cleanroom-schema/studied_in/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.7">
     
     
       
-        <title>Slot: entries - cleanroom-schema</title>
+        <title>Slot: studied_in - cleanroom-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-entries" class="md-skip">
+        <a href="#slot-studied_in" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: entries
+              Slot: studied_in
             
           </span>
         </div>
@@ -317,14 +317,15 @@
                 
                   
 
-  <a href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/entries.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/studied_in.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-entries">Slot: entries</h1>
-<p>URI: <a href="https://w3id.org/microbiomedata/cleanroom-schema/entries">cleanroom_schema:entries</a></p>
+<h1 id="slot-studied_in">Slot: studied_in</h1>
+<p><em>The studies in which the Biosample was used</em></p>
+<p>URI: <a href="https://w3id.org/microbiomedata/cleanroom-schema/studied_in">cleanroom_schema:studied_in</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -337,14 +338,18 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../PersonCollection/">PersonCollection</a></td>
-<td>A holder for Person objects</td>
+<td><a href="../Biosample/">Biosample</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="../AnalyticalSample/">AnalyticalSample</a></td>
+<td>None</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Person/">Person</a></li>
+<li>Range: <a href="../Study/">Study</a></li>
 <li>Multivalued: True</li>
 </ul>
 <h2 id="alias">Alias</h2>
@@ -356,16 +361,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: entries
+<pre><code class="language-yaml">name: studied_in
+description: The studies in which the Biosample was used
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 multivalued: true
-alias: entries
-owner: PersonCollection
+alias: studied_in
 domain_of:
-- PersonCollection
-range: Person
-inlined: true
+- Biosample
+range: Study
 
 </code></pre>
 
