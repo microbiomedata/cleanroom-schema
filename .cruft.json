@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "cf4e24d6704f63ff1e6391e171d4cddaa554dd3f",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "cleanroom-schema",
+      "__project_slug": "cleanroom_schema",
+      "github_org": "microbiomedata",
+      "__source_path": "src/cleanroom_schema/schema/cleanroom_schema.yaml",
+      "project_description": "Cleanroom reboot of NMDC schema",
+      "full_name": "Mark Andrew Miller",
+      "email": "MAM@lbl.gov",
+      "__author": "Mark Andrew Miller <MAM@lbl.gov>",
+      "license": "MIT",
+      "main_schema_class": "Person",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "No",
+      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
+      "google_sheet_tabs": "personinfo enums",
+      "__google_sheet_module": "personinfo_enums",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}
