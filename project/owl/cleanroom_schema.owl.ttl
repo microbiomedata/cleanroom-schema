@@ -26,7 +26,7 @@ linkml:topValue a owl:DatatypeProperty ;
     dcterms:license "MIT" ;
     dcterms:title "cleanroom-schema" ;
     rdfs:seeAlso "https://microbiomedata.github.io/cleanroom-schema" ;
-    linkml:generation_date "2022-11-01T13:42:38" ;
+    linkml:generation_date "2022-11-01T13:46:05" ;
     linkml:metamodel_version "1.7.0" ;
     linkml:source_file "cleanroom_schema.yaml" ;
     linkml:source_file_date "2022-11-01T13:40:50" ;
@@ -110,11 +110,11 @@ cleanroom_schema:NamedThing a owl:Class,
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty schema:description ],
+            owl:onProperty schema:name ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
-            owl:onProperty schema:name ] ;
+            owl:onProperty schema:description ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema:Thing .
 
@@ -123,20 +123,20 @@ cleanroom_schema:Person a owl:Class,
     rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Integer ;
-            owl:onProperty cleanroom_schema:age_in_years ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass cleanroom_schema:PersonStatus ;
-            owl:onProperty cleanroom_schema:vital_status ],
+            owl:onClass linkml:Date ;
+            owl:onProperty schema:birthDate ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
             owl:onProperty schema:email ],
         [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:Date ;
-            owl:onProperty schema:birthDate ],
+            owl:onClass linkml:Integer ;
+            owl:onProperty cleanroom_schema:age_in_years ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass cleanroom_schema:PersonStatus ;
+            owl:onProperty cleanroom_schema:vital_status ],
         cleanroom_schema:NamedThing ;
     skos:definition "Represents a Person" .
 

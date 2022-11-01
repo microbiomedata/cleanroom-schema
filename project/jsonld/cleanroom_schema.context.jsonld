@@ -1,5 +1,5 @@
 {
-   "_comments": "Auto generated from cleanroom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-11-01T13:42:34\n    Schema: cleanroom-schema\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/microbiomedata/cleanroom-schema\n    description: Cleanroom reboot of NMDC schema\n    license: MIT\n    ",
+   "_comments": "Auto generated from cleanroom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-11-01T13:46:01\n    Schema: cleanroom-schema\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/microbiomedata/cleanroom-schema\n    description: Cleanroom reboot of NMDC schema\n    license: MIT\n    ",
    "@context": {
       "PATO": {
          "@id": "http://purl.obolibrary.org/obo/PATO_",
