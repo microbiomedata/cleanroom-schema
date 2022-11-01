@@ -210,6 +210,7 @@
     class Biosample
       Sample &lt;|-- Biosample
 
+      Biosample : gold_biosample_ids
       Biosample : id
       Biosample : studied_in
 
@@ -235,7 +236,13 @@
 <tr>
 <td><a href="../id/">id</a></td>
 <td>1..1 <br/> None</td>
-<td>The unique identifier for the instance</td>
+<td>The unique identifier for instances of this class</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../gold_biosample_ids/">gold_biosample_ids</a></td>
+<td>0..* <br/> None</td>
+<td>An identifier for a GOLD Biosample record that is identical to this instance</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -305,6 +312,7 @@ rank: 1000
 is_a: Sample
 slots:
 - id
+- gold_biosample_ids
 - studied_in
 
 </code></pre>
@@ -318,7 +326,7 @@ is_a: Sample
 attributes:
   id:
     name: id
-    description: The unique identifier for the instance
+    description: The unique identifier for instances of this class
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
     identifier: true
@@ -328,6 +336,24 @@ attributes:
     - Biosample
     - Study
     - OmicsProcessing
+    range: string
+  gold_biosample_ids:
+    name: gold_biosample_ids
+    description: An identifier for a GOLD Biosample record that is identical to this
+      instance
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    is_a: linking_id
+    mixins:
+    - biosample_id
+    - external_id
+    - gold_identifier
+    - related_id
+    multivalued: true
+    alias: gold_biosample_ids
+    owner: Biosample
+    domain_of:
+    - Biosample
     range: string
   studied_in:
     name: studied_in
