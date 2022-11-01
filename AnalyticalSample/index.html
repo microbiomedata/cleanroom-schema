@@ -203,20 +203,15 @@
 <p>URI: <a href="https://w3id.org/microbiomedata/cleanroom-schema/AnalyticalSample">cleanroom_schema:AnalyticalSample</a></p>
 <div class="mermaid"> classDiagram
     class AnalyticalSample
-      Biosample &lt;|-- AnalyticalSample
+      Sample &lt;|-- AnalyticalSample
 
       AnalyticalSample : derived_from
-      AnalyticalSample : id
-      AnalyticalSample : studied_in
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Sample/">Sample</a><ul>
-<li><a href="../Biosample/">Biosample</a><ul>
 <li><strong>AnalyticalSample</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -236,18 +231,6 @@
 <td>0..1 <br/> None</td>
 <td>None</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../studied_in/">studied_in</a></td>
-<td>0..* <br/> Study</td>
-<td>The studies in which the Biosample was used</td>
-<td><a href="../Biosample/">Biosample</a></td>
-</tr>
-<tr>
-<td><a href="../id/">id</a></td>
-<td>1..1 <br/> None</td>
-<td>The unique identifier for the instance</td>
-<td><a href="../Biosample/">Biosample</a></td>
 </tr>
 </tbody>
 </table>
@@ -282,7 +265,7 @@
 <pre><code class="language-yaml">name: AnalyticalSample
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: Biosample
+is_a: Sample
 slots:
 - derived_from
 slot_usage:
@@ -300,7 +283,7 @@ slot_usage:
 <pre><code class="language-yaml">name: AnalyticalSample
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: Biosample
+is_a: Sample
 slot_usage:
   derived_from:
     name: derived_from
@@ -319,30 +302,6 @@ attributes:
     - AnalyticalSample
     - AnalyticalSample
     range: Biosample
-  id:
-    name: id
-    description: The unique identifier for the instance
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
-    rank: 1000
-    identifier: true
-    alias: id
-    owner: AnalyticalSample
-    domain_of:
-    - Biosample
-    - Study
-    - OmicsProcessing
-    range: string
-  studied_in:
-    name: studied_in
-    description: The studies in which the Biosample was used
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
-    rank: 1000
-    multivalued: true
-    alias: studied_in
-    owner: AnalyticalSample
-    domain_of:
-    - Biosample
-    range: Study
 
 </code></pre>
 </details>
