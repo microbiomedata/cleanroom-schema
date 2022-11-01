@@ -51,6 +51,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/SoilBiosample/</loc>
+         <lastmod>2022-11-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/Study/</loc>
          <lastmod>2022-11-01</lastmod>
          <changefreq>daily</changefreq>
@@ -152,6 +157,11 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/studied_in/</loc>
+         <lastmod>2022-11-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/temperature_c/</loc>
          <lastmod>2022-11-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
