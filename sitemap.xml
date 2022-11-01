@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/Database/</loc>
+         <lastmod>2022-11-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/NamedThing/</loc>
          <lastmod>2022-11-01</lastmod>
          <changefreq>daily</changefreq>
@@ -67,6 +72,11 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/biosample_id/</loc>
+         <lastmod>2022-11-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/biosample_set/</loc>
          <lastmod>2022-11-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
