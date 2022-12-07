@@ -38,49 +38,50 @@ classes:
     comments:
       - "class_uri: BFO:0000001?"
   MaterialEntity:
-    title: Material Entity
     class_uri: BFO:0000040
     is_a: NamedThing
+    title: Material Entity
   ImmaterialEntity:
-    title: Immaterial Entity
     class_uri: BFO:0000141
     is_a: NamedThing
+    title: Immaterial Entity
   Specimen:
-    title: Specimen
     class_uri: OBI:0100051
     is_a: MaterialEntity
+    title: Specimen
   Biosample:
-    title: Biosample
     is_a: Specimen
+    title: Biosample
     slots:
       - collected_from
   MaterialSample:
-    title: Material Sample
     class_uri: OBI:0000747
     is_a: Specimen
+    title: Material Sample
   Site:
-    title: Site
     class_uri: BFO:0000029
     is_a: ImmaterialEntity
+    title: Site
   FieldResearchSite:
-    title: Field Research Site
-    is_a: Site
     description: A site, outside of a laboratory, from which biosamples may be collected.
+    is_a: Site
+    title: Field Research Site
     comments:
       - Provides grouping of biosamples at level that's more specific than belonging
         to the same study
       - In Bioscales, one might say that rhizosphere soil and bulk soil from around
         the same plant were obtained at the same site. In this case, the site would
         have a 1:1 correspondence to the plant.
+
   PlannedProcess:
-    title: Planned Process
     class_uri: OBI:0000011
     is_a: NamedThing
+    title: Planned Process
 
   CollectingBiosamplesFromSite:
-    title: Planned Process
     class_uri: OBI:0000011
     is_a: PlannedProcess
+    title: Planned Process
     slots:
       - site
       - biosamples
@@ -96,26 +97,26 @@ classes:
       A datastructure that can contain lists of instances from any selected classes in the schema
     attributes:
       biosample_list:
+        inlined: true
+        multivalued: true
         range: Biosample
-        multivalued: true
-        inlined: true
       frs_list:
-        range: FieldResearchSite
-        multivalued: true
         inlined: true
+        multivalued: true
+        range: FieldResearchSite
 
 slots:
   id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
     description: A unique identifier for a thing
+    identifier: true
+    range: uriorcurie
+    slot_uri: schema:identifier
   name:
-    slot_uri: schema:name
     description: A human-readable name for a thing
+    slot_uri: schema:name
   description:
-    slot_uri: schema:description
     description: A human-readable description for a thing
+    slot_uri: schema:description
   type:
     description: The type of a thing. Should be a local class name or an ontology class from a local enumeration
     comments:
@@ -123,26 +124,23 @@ slots:
       - be conservative about assigning rdf:type as the slot uri
   collected_from:
     description: The Site from which a Biosample was collected
-    range: FieldResearchSite
     domain: Biosample
+    range: FieldResearchSite
     comments:
       - this illustrates implementing a Biosample relation with a (binary) slot
     todos:
       - add an OBO slot_uri ?
   biosamples:
     description: A list of Biosamples
+    multivalued: true
+    range: Biosample
     comments:
       - for example, the biosamples that wre collected at some site
-    range: Biosample
-    multivalued: true
+
   site:
     description: a single site
+    range: Site
     comments:
       - for example, the site from which a biosample was collected
-    range: Site
-
-
-
-
 
 enums: { }
