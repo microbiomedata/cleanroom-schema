@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/cleanroom-schema/collected_from/">
+        <link rel="canonical" href="https://microbiomedata.github.io/cleanroom-schema/test_slot_1b/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: collected_from - cleanroom-schema</title>
+        <title>Slot: test_slot_1b - cleanroom-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-collected_from" class="md-skip">
+        <a href="#slot-test_slot_1b" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: collected_from
+              Slot: test_slot_1b
             
           </span>
         </div>
@@ -270,20 +270,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#comments" class="md-nav__link">
-    Comments
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#todos" class="md-nav__link">
-    TODOs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
   </a>
@@ -324,15 +310,14 @@
                 
                   
 
-  <a href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/collected_from.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/test_slot_1b.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-collected_from">Slot: collected_from</h1>
-<p><em>The Site from which a Biosample was collected</em></p>
-<p>URI: <a href="https://example.com/biosample_relations/cleanroom-schema/collected_from">cleanroom_schema:collected_from</a></p>
+<h1 id="slot-test_slot_1b">Slot: test_slot_1b</h1>
+<p>URI: <a href="https://example.com/biosample_relations/cleanroom-schema/test_slot_1b">cleanroom_schema:test_slot_1b</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -345,22 +330,14 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Biosample/">Biosample</a></td>
+<td><a href="../TestClass1/">TestClass1</a></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../FieldResearchSite/">FieldResearchSite</a></li>
-</ul>
-<h2 id="comments">Comments</h2>
-<ul>
-<li>this illustrates implementing a Biosample relation with a (binary) slot</li>
-</ul>
-<h2 id="todos">TODOs</h2>
-<ul>
-<li>add an OBO slot_uri ?</li>
+<li>Range: <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -370,19 +347,13 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: collected_from
-description: The Site from which a Biosample was collected
-todos:
-- add an OBO slot_uri ?
-comments:
-- this illustrates implementing a Biosample relation with a (binary) slot
+<pre><code class="language-yaml">name: test_slot_1b
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-domain: Biosample
-alias: collected_from
+alias: test_slot_1b
 domain_of:
-- Biosample
-range: FieldResearchSite
+- TestClass1
+range: string
 
 </code></pre>
 

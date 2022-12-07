@@ -210,7 +210,6 @@
       Specimen : name
 
 
-      Specimen &lt;|-- Biosample
       Specimen &lt;|-- MaterialSample
 
       Specimen : description
@@ -223,7 +222,6 @@
 <li><a href="../NamedThing/">NamedThing</a><ul>
 <li><a href="../MaterialEntity/">MaterialEntity</a><ul>
 <li><strong>Specimen</strong><ul>
-<li><a href="../Biosample/">Biosample</a></li>
 <li><a href="../MaterialSample/">MaterialSample</a></li>
 </ul>
 </li>
@@ -234,9 +232,9 @@
 </ul>
 <h2 id="slots">Slots</h2>
 <p>| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- || <a href="../name/">name</a> | 0..1 <br/> NONE | A human-readable name for a thing | <a href="../NamedThing/">NamedThing</a> |
+| ---  | --- | --- | --- || <a href="../id/">id</a> | 1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a> | A unique identifier for a thing | <a href="../NamedThing/">NamedThing</a> |
 | <a href="../description/">description</a> | 0..1 <br/> NONE | A human-readable description for a thing | <a href="../NamedThing/">NamedThing</a> |
-| <a href="../id/">id</a> | 1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a> | A unique identifier for a thing | <a href="../NamedThing/">NamedThing</a> |</p>
+| <a href="../name/">name</a> | 0..1 <br/> NONE | A human-readable name for a thing | <a href="../NamedThing/">NamedThing</a> |</p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>

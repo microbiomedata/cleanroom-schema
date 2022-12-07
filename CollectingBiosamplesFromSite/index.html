@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://microbiomedata.github.io/cleanroom-schema/Site/" rel="canonical"/>
+<link href="https://microbiomedata.github.io/cleanroom-schema/CollectingBiosamplesFromSite/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: Site - cleanroom-schema</title>
+<title>Class: CollectingBiosamplesFromSite - cleanroom-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-site">
+<a class="md-skip" href="#class-collectingbiosamplesfromsite">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: Site
+              Class: CollectingBiosamplesFromSite
             
           </span>
 </div>
@@ -152,6 +152,16 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+    Usages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -196,45 +206,99 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/Site.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/CollectingBiosamplesFromSite.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-site">Class: Site</h1>
-<p>URI: <a href="https://purl.obolibrary.org/obo/BFO_0000029">BFO:0000029</a></p>
+<h1 id="class-collectingbiosamplesfromsite">Class: CollectingBiosamplesFromSite</h1>
+<p>URI: <a href="https://purl.obolibrary.org/obo/OBI_0000011">OBI:0000011</a></p>
 <div class="mermaid"> classDiagram
-    class Site
-      ImmaterialEntity &lt;|-- Site
+    class CollectingBiosamplesFromSite
+      PlannedProcess &lt;|-- CollectingBiosamplesFromSite
 
-      Site : description
-      Site : id
-      Site : name
-
-
-      Site &lt;|-- FieldResearchSite
-
-      Site : description
-      Site : id
-      Site : name
+      CollectingBiosamplesFromSite : biosamples
+      CollectingBiosamplesFromSite : description
+      CollectingBiosamplesFromSite : id
+      CollectingBiosamplesFromSite : name
+      CollectingBiosamplesFromSite : site
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
-<li><a href="../ImmaterialEntity/">ImmaterialEntity</a><ul>
-<li><strong>Site</strong><ul>
-<li><a href="../FieldResearchSite/">FieldResearchSite</a></li>
-</ul>
-</li>
+<li><a href="../PlannedProcess/">PlannedProcess</a><ul>
+<li><strong>CollectingBiosamplesFromSite</strong></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <h2 id="slots">Slots</h2>
-<p>| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- || <a href="../id/">id</a> | 1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a> | A unique identifier for a thing | <a href="../NamedThing/">NamedThing</a> |
-| <a href="../description/">description</a> | 0..1 <br/> NONE | A human-readable description for a thing | <a href="../NamedThing/">NamedThing</a> |
-| <a href="../name/">name</a> | 0..1 <br/> NONE | A human-readable name for a thing | <a href="../NamedThing/">NamedThing</a> |</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Cardinality and Range</th>
+<th>Description</th>
+<th>Inheritance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../site/">site</a></td>
+<td>0..1 <br/> <a href="../FieldResearchSite/">FieldResearchSite</a></td>
+<td>a single site</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../biosamples/">biosamples</a></td>
+<td>0..* <br/> <a href="../Biosample/">Biosample</a></td>
+<td>A list of Biosamples</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+<td>A unique identifier for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> NONE</td>
+<td>A human-readable description for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> NONE</td>
+<td>A human-readable name for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../DataListCollection/">DataListCollection</a></td>
+<td><a href="../cbfs_list/">cbfs_list</a></td>
+<td>range</td>
+<td><a href="./">CollectingBiosamplesFromSite</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="comments">Comments</h2>
+<ul>
+<li>this illustrates implementing a Biosample relation with a process class</li>
+<li>not to be confused with a reified relationship class</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -251,11 +315,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>BFO:0000029</td>
+<td>OBI:0000011</td>
 </tr>
 <tr>
 <td>native</td>
-<td>cleanroom_schema:Site</td>
+<td>cleanroom_schema:CollectingBiosamplesFromSite</td>
 </tr>
 </tbody>
 </table>
@@ -263,23 +327,58 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: Site
-title: Site
+<pre><code class="language-yaml">name: CollectingBiosamplesFromSite
+title: Planned Process
+comments:
+- this illustrates implementing a Biosample relation with a process class
+- not to be confused with a reified relationship class
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: ImmaterialEntity
-class_uri: BFO:0000029
+is_a: PlannedProcess
+slots:
+- site
+- biosamples
+class_uri: OBI:0000011
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: Site
-title: Site
+<pre><code class="language-yaml">name: CollectingBiosamplesFromSite
+title: Planned Process
+comments:
+- this illustrates implementing a Biosample relation with a process class
+- not to be confused with a reified relationship class
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: ImmaterialEntity
+is_a: PlannedProcess
 attributes:
+  site:
+    name: site
+    description: a single site
+    comments:
+    - for example, the site from which a biosample was collected
+    - could this ever be something other than a FieldResearchSite?
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    alias: site
+    owner: CollectingBiosamplesFromSite
+    domain_of:
+    - CollectingBiosamplesFromSite
+    range: FieldResearchSite
+  biosamples:
+    name: biosamples
+    description: A list of Biosamples
+    comments:
+    - for example, the biosamples that wre collected at some site
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    multivalued: true
+    alias: biosamples
+    owner: CollectingBiosamplesFromSite
+    domain_of:
+    - CollectingBiosamplesFromSite
+    range: Biosample
   id:
     name: id
     description: A unique identifier for a thing
@@ -288,7 +387,7 @@ attributes:
     slot_uri: schema:identifier
     identifier: true
     alias: id
-    owner: Site
+    owner: CollectingBiosamplesFromSite
     domain_of:
     - NamedThing
     range: uriorcurie
@@ -299,7 +398,7 @@ attributes:
     rank: 1000
     slot_uri: schema:name
     alias: name
-    owner: Site
+    owner: CollectingBiosamplesFromSite
     domain_of:
     - NamedThing
     range: string
@@ -310,11 +409,11 @@ attributes:
     rank: 1000
     slot_uri: schema:description
     alias: description
-    owner: Site
+    owner: CollectingBiosamplesFromSite
     domain_of:
     - NamedThing
     range: string
-class_uri: BFO:0000029
+class_uri: OBI:0000011
 
 </code></pre>
 </details>

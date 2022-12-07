@@ -200,8 +200,8 @@
 <div class="mermaid"> classDiagram
     class DataLists
       DataLists : biosample_list
+      DataLists : cbfs_list
       DataLists : frs_list
-      DataLists : nt_list
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -217,12 +217,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../nt_list/">nt_list</a></td>
-<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../biosample_list/">biosample_list</a></td>
 <td>0..* <br/> <a href="../Biosample/">Biosample</a></td>
 <td></td>
@@ -231,6 +225,12 @@
 <tr>
 <td><a href="../frs_list/">frs_list</a></td>
 <td>0..* <br/> <a href="../FieldResearchSite/">FieldResearchSite</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../cbfs_list/">cbfs_list</a></td>
+<td>0..* <br/> <a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -270,13 +270,6 @@ description: A datastructure that can contain lists of instances from any select
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 attributes:
-  nt_list:
-    name: nt_list
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
-    rank: 1000
-    multivalued: true
-    range: NamedThing
-    inlined: true
   biosample_list:
     name: biosample_list
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
@@ -291,6 +284,13 @@ attributes:
     multivalued: true
     range: FieldResearchSite
     inlined: true
+  cbfs_list:
+    name: cbfs_list
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    multivalued: true
+    range: CollectingBiosamplesFromSite
+    inlined: true
 tree_root: true
 
 </code></pre>
@@ -303,17 +303,6 @@ description: A datastructure that can contain lists of instances from any select
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 attributes:
-  nt_list:
-    name: nt_list
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
-    rank: 1000
-    multivalued: true
-    alias: nt_list
-    owner: DataLists
-    domain_of:
-    - DataLists
-    range: NamedThing
-    inlined: true
   biosample_list:
     name: biosample_list
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
@@ -335,6 +324,17 @@ attributes:
     domain_of:
     - DataLists
     range: FieldResearchSite
+    inlined: true
+  cbfs_list:
+    name: cbfs_list
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    multivalued: true
+    alias: cbfs_list
+    owner: DataLists
+    domain_of:
+    - DataLists
+    range: CollectingBiosamplesFromSite
     inlined: true
 tree_root: true
 

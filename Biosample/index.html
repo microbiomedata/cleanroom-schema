@@ -208,7 +208,7 @@
 <p>URI: <a href="https://example.com/biosample_relations/cleanroom-schema/Biosample">cleanroom_schema:Biosample</a></p>
 <div class="mermaid"> classDiagram
     class Biosample
-      Specimen &lt;|-- Biosample
+      NamedThing &lt;|-- Biosample
 
       Biosample : collected_from
       Biosample : description
@@ -219,13 +219,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
-<li><a href="../MaterialEntity/">MaterialEntity</a><ul>
-<li><a href="../Specimen/">Specimen</a><ul>
 <li><strong>Biosample</strong></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -247,9 +241,9 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> NONE</td>
-<td>A human-readable name for a thing</td>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+<td>A unique identifier for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
@@ -259,9 +253,9 @@
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
-<td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
-<td>A unique identifier for a thing</td>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> NONE</td>
+<td>A human-readable name for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 </tbody>
@@ -284,7 +278,13 @@
 <td><a href="./">Biosample</a></td>
 </tr>
 <tr>
-<td><a href="../DataLists/">DataLists</a></td>
+<td><a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
+<td><a href="../biosamples/">biosamples</a></td>
+<td>range</td>
+<td><a href="./">Biosample</a></td>
+</tr>
+<tr>
+<td><a href="../DataListCollection/">DataListCollection</a></td>
 <td><a href="../biosample_list/">biosample_list</a></td>
 <td>range</td>
 <td><a href="./">Biosample</a></td>
@@ -323,7 +323,7 @@
 title: Biosample
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: Specimen
+is_a: NamedThing
 slots:
 - collected_from
 
@@ -335,7 +335,7 @@ slots:
 title: Biosample
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: Specimen
+is_a: NamedThing
 attributes:
   collected_from:
     name: collected_from
@@ -343,7 +343,7 @@ attributes:
     todos:
     - add an OBO slot_uri ?
     comments:
-    - this slot illustrates solving a Biosample relation with a (binary) slot
+    - this illustrates implementing a Biosample relation with a (binary) slot
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
     domain: Biosample
