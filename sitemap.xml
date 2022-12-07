@@ -201,6 +201,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/relations_list/</loc>
+         <lastmod>2022-12-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/site/</loc>
          <lastmod>2022-12-07</lastmod>
          <changefreq>daily</changefreq>
