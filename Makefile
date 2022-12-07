@@ -8,8 +8,8 @@ SHELL := bash
 
 RUN = poetry run
 # get values from about.yaml file
-SCHEMA_NAME = $(shell sh ./utils/get-value.sh name)
-SOURCE_SCHEMA_PATH = $(shell sh ./utils/get-value.sh source_schema_path)
+SCHEMA_NAME = $(shell bash ./utils/get-value.sh name)
+SOURCE_SCHEMA_PATH = $(shell bash ./utils/get-value.sh source_schema_path)
 SOURCE_SCHEMA_DIR = $(dir $(SOURCE_SCHEMA_PATH))
 SRC = src
 DEST = project
@@ -17,8 +17,8 @@ PYMODEL = $(SRC)/$(SCHEMA_NAME)/datamodel
 DOCDIR = docs
 EXAMPLEDIR = examples
 SHEET_MODULE = personinfo_enums
-SHEET_ID = $(shell sh ./utils/get-value.sh google_sheet_id)
-SHEET_TABS = $(shell sh ./utils/get-value.sh google_sheet_tabs)
+SHEET_ID = $(shell bash ./utils/get-value.sh google_sheet_id)
+SHEET_TABS = $(shell bash ./utils/get-value.sh google_sheet_tabs)
 SHEET_MODULE_PATH = $(SOURCE_SCHEMA_DIR)/$(SHEET_MODULE).yaml
 
 # basename of a YAML file in model/
@@ -58,13 +58,13 @@ install:
 # check we are up to date
 check: cruft-check
 cruft-check:
-	cruft check
+	poetry run cruft check
 cruft-diff:
-	cruft diff
+	poetry run cruft diff
 
 update: update-template update-linkml
 update-template:
-	cruft update
+	poetry run cruft update
 
 # todo: consider pinning to template
 update-linkml:
