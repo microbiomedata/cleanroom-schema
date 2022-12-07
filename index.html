@@ -291,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about.md" class="md-nav__link">
+      <a href="about/" class="md-nav__link">
         About
       </a>
     </li>
@@ -393,16 +393,40 @@ Name: cleanroom-schema</p>
 </thead>
 <tbody>
 <tr>
+<td><a href="Biosample/">Biosample</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="DataLists/">DataLists</a></td>
+<td>A datastructure that can contain lists of instances from any selected classes...</td>
+</tr>
+<tr>
+<td><a href="FieldResearchSite/">FieldResearchSite</a></td>
+<td>A site, outside of a laboratory, from which biosamples may be collected</td>
+</tr>
+<tr>
+<td><a href="ImmaterialEntity/">ImmaterialEntity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="MaterialEntity/">MaterialEntity</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="MaterialSample/">MaterialSample</a></td>
+<td></td>
+</tr>
+<tr>
 <td><a href="NamedThing/">NamedThing</a></td>
 <td>A generic grouping for any identifiable entity</td>
 </tr>
 <tr>
-<td><a href="Person/">Person</a></td>
-<td>Represents a Person</td>
+<td><a href="Site/">Site</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="PersonCollection/">PersonCollection</a></td>
-<td>A holder for Person objects</td>
+<td><a href="Specimen/">Specimen</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -416,19 +440,19 @@ Name: cleanroom-schema</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="age_in_years/">age_in_years</a></td>
-<td>Number of years since birth</td>
+<td><a href="biosample_list/">biosample_list</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="birth_date/">birth_date</a></td>
-<td>Date on which a person is born</td>
+<td><a href="collected_from/">collected_from</a></td>
+<td>The Site from which a Biosample was collected</td>
 </tr>
 <tr>
 <td><a href="description/">description</a></td>
 <td>A human-readable description for a thing</td>
 </tr>
 <tr>
-<td><a href="entries/">entries</a></td>
+<td><a href="frs_list/">frs_list</a></td>
 <td></td>
 </tr>
 <tr>
@@ -440,12 +464,12 @@ Name: cleanroom-schema</p>
 <td>A human-readable name for a thing</td>
 </tr>
 <tr>
-<td><a href="primary_email/">primary_email</a></td>
-<td>The main email address of a person</td>
+<td><a href="nt_list/">nt_list</a></td>
+<td></td>
 </tr>
 <tr>
-<td><a href="vital_status/">vital_status</a></td>
-<td>living or dead status</td>
+<td><a href="type/">type</a></td>
+<td>The type of a thing</td>
 </tr>
 </tbody>
 </table>
@@ -459,7 +483,7 @@ Name: cleanroom-schema</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="PersonStatus/">PersonStatus</a></td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
@@ -474,11 +498,11 @@ Name: cleanroom-schema</p>
 </thead>
 <tbody>
 <tr>
-<td><a href="xsd:boolean">xsd:boolean</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a></td>
 <td>A binary (true or false) value</td>
 </tr>
 <tr>
-<td><a href="xsd:date">xsd:date</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a></td>
 <td>a date (year, month and day) in an idealized calendar</td>
 </tr>
 <tr>
@@ -486,27 +510,27 @@ Name: cleanroom-schema</p>
 <td>Either a date or a datetime</td>
 </tr>
 <tr>
-<td><a href="xsd:dateTime">xsd:dateTime</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a></td>
 <td>The combination of a date and time</td>
 </tr>
 <tr>
-<td><a href="xsd:decimal">xsd:decimal</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#decimal">xsd:decimal</a></td>
 <td>A real number with arbitrary precision that conforms to the xsd:decimal speci...</td>
 </tr>
 <tr>
-<td><a href="xsd:double">xsd:double</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#double">xsd:double</a></td>
 <td>A real number that conforms to the xsd:double specification</td>
 </tr>
 <tr>
-<td><a href="xsd:float">xsd:float</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#float">xsd:float</a></td>
 <td>A real number that conforms to the xsd:float specification</td>
 </tr>
 <tr>
-<td><a href="xsd:integer">xsd:integer</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#integer">xsd:integer</a></td>
 <td>An integer</td>
 </tr>
 <tr>
-<td><a href="xsd:string">xsd:string</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>Prefix part of CURIE</td>
 </tr>
 <tr>
@@ -518,19 +542,19 @@ Name: cleanroom-schema</p>
 <td>A URI or CURIE that represents an object in the model</td>
 </tr>
 <tr>
-<td><a href="xsd:string">xsd:string</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
 <td>A character string</td>
 </tr>
 <tr>
-<td><a href="xsd:dateTime">xsd:dateTime</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a></td>
 <td>A time object represents a (local) time of day, independent of any particular...</td>
 </tr>
 <tr>
-<td><a href="xsd:anyURI">xsd:anyURI</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
 <td>a complete URI</td>
 </tr>
 <tr>
-<td><a href="xsd:anyURI">xsd:anyURI</a></td>
+<td><a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
 <td>a URI or a CURIE</td>
 </tr>
 </tbody>
@@ -567,6 +591,27 @@ Name: cleanroom-schema</p>
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+      
+        
+        <a href="about/" class="md-footer__link md-footer__link--next" aria-label="Next: About" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              About
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
