@@ -16,6 +16,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
   schema: http://schema.org/
   xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
 #  PATO: http://purl.obolibrary.org/obo/PATO_
 #  biolink: https://w3id.org/biolink/
 #  example: https://example.org/
@@ -26,6 +27,32 @@ imports:
   - linkml:types
 
 classes:
+
+  #  TestClass1:
+  #    is_a: NamedThing
+  #    slots:
+  #      - test_slot_1a
+  #      - test_slot_1b
+  #
+  #  TestClass2:
+  #    slots:
+  #      - test_slot_2a
+  #      - test_slot_2b
+  #
+  #  ExperimentalContainer:
+  #    attributes:
+  #      list_1:
+  #        inlined: true
+  #        multivalued: true
+  #        range: TestClass1
+  #      list_2:
+  #        inlined: true
+  #        multivalued: true
+  #        range: TestClass2
+  #      biosample_list:
+  #        inlined: true
+  #        multivalued: true
+  #        range: Biosample
 
   NamedThing:
     description: >-
@@ -50,7 +77,7 @@ classes:
     is_a: MaterialEntity
     title: Specimen
   Biosample:
-    is_a: Specimen
+    is_a: NamedThing
     title: Biosample
     slots:
       - collected_from
@@ -89,10 +116,18 @@ classes:
       - "this illustrates implementing a Biosample relation with a process class"
       - not to be confused with a reified relationship class
 
-  ReifiedRelationship: { }
+  ReifiedRelationship:
+    class_uri: rdf:Statement
+    see_also:
+      - https://stackoverflow.com/questions/45610092/owl-reification-vs-rdf-reification
+    slots:
+      - subject
+      - predicate
+      - object
+      - notes
 
-  DataLists:
-    tree_root: true
+  DataListCollection:
+    #    tree_root: true
     description: >-
       A datastructure that can contain lists of instances from any selected classes in the schema
     attributes:
@@ -104,6 +139,10 @@ classes:
         inlined: true
         multivalued: true
         range: FieldResearchSite
+      cbfs_list:
+        inlined: true
+        multivalued: true
+        range: CollectingBiosamplesFromSite
 
 slots:
   id:
@@ -139,8 +178,51 @@ slots:
 
   site:
     description: a single site
-    range: Site
+    range: FieldResearchSite
     comments:
       - for example, the site from which a biosample was collected
+      - could this ever be something other than a FieldResearchSite?
+
+  subject:
+    description: The subject of a relationship
+    range: NamedThing
+    slot_uri: rdf:subject
+    comments:
+      - could this be multivalued?
+
+  predicate:
+    description: The predicate of a relationship
+    slot_uri: rdf:predicate
+    comments:
+      - what's the range here? we would expect the name of a local slot, or the CURIE representation of an object property, preferably from the OBO foundry, skos, schema.org, PROV, etc
+
+  object:
+    description: The object of a relationship
+    range: NamedThing
+    slot_uri: rdf:object
+    comments:
+      - could this be multivalued?
+
+  notes:
+    range: string
+    comments:
+      - this is a placeholder for more structured metadata about a relationship... by whom? when? status?
+
+#  test_slot_1a:
+#    range: string
+#
+#
+#  test_slot_1b:
+#    range: string
+#
+#
+#  test_slot_2a:
+#    range: string
+#
+#
+#  test_slot_2b:
+#    range: string
+
+
 
 enums: { }
