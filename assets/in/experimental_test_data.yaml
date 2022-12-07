@@ -1,0 +1,17 @@
+list_1:
+  - test_slot_1a: cleanroom_schema:tc1
+    test_slot_1b: test class instance one
+  - test_slot_1a: cleanroom_schema:tc2
+    test_slot_1b: test class instance two
+
+list_2:
+  - test_slot_2a: cleanroom_schema:tc3
+    test_slot_2b: test class instance one
+  - test_slot_2a: cleanroom_schema:tc4
+    test_slot_2b: test class instance two
+
+#biosample_list:
+#  - test_slot_1a: "x:1"
+#    collected_from: cleanroom_schema:frs1
+#  - test_slot_1a: "x:2"
+#    collected_from: cleanroom_schema:frs2

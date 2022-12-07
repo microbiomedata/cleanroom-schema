@@ -6,14 +6,22 @@ description: |-
 license: MIT
 see_also:
   - https://microbiomedata.github.io/cleanroom-schema
+  - https://github.com/microbiomedata/nmdc-schema/issues/518
 
 prefixes:
-  cleanroom_schema: https://w3id.org/microbiomedata/cleanroom-schema/
+  BFO: https://purl.obolibrary.org/obo/BFO_
+  GOLD: http://identifiers.org/gold/
+  OBI: https://purl.obolibrary.org/obo/OBI_
+  OBO: https://purl.obolibrary.org/obo/
+  biosample_relations: https://example.com/biosample_relations
+  cleanroom_schema: https://example.com/biosample_relations/cleanroom-schema/
   linkml: https://w3id.org/linkml/
-  biolink: https://w3id.org/biolink/
-  schema: http://schema.org/
-  PATO: http://purl.obolibrary.org/obo/PATO_
-  example: https://example.org/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  schema: https://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
+#  PATO: http://purl.obolibrary.org/obo/PATO_
+#  biolink: https://w3id.org/biolink/
+#  example: https://example.org/
 default_prefix: cleanroom_schema
 default_range: string
 
@@ -21,6 +29,32 @@ imports:
   - linkml:types
 
 classes:
+
+  #  TestClass1:
+  #    is_a: NamedThing
+  #    slots:
+  #      - test_slot_1a
+  #      - test_slot_1b
+  #
+  #  TestClass2:
+  #    slots:
+  #      - test_slot_2a
+  #      - test_slot_2b
+  #
+  #  ExperimentalContainer:
+  #    attributes:
+  #      list_1:
+  #        inlined: true
+  #        multivalued: true
+  #        range: TestClass1
+  #      list_2:
+  #        inlined: true
+  #        multivalued: true
+  #        range: TestClass2
+  #      biosample_list:
+  #        inlined: true
+  #        multivalued: true
+  #        range: Biosample
 
   NamedThing:
     description: >-
@@ -30,66 +64,177 @@ classes:
       - name
       - description
     class_uri: schema:Thing
-
-  Person:
+    comments:
+      - "class_uri: BFO:0000001?"
+  MaterialEntity:
+    class_uri: BFO:0000040
     is_a: NamedThing
-    description: >-
-      Represents a Person
+    title: Material Entity
+  ImmaterialEntity:
+    class_uri: BFO:0000141
+    is_a: NamedThing
+    title: Immaterial Entity
+  Specimen:
+    class_uri: OBI:0100051
+    is_a: MaterialEntity
+    title: Specimen
+  Biosample:
+    is_a: NamedThing
+    title: Biosample
     slots:
-      - primary_email
-      - birth_date
-      - age_in_years
-      - vital_status
-    slot_usage:
-      primary_email:
-        pattern: "^\\S+@[\\S+\\.]+\\S+"
-        
-  PersonCollection:
-    tree_root: true
+      - collected_from
+  MaterialSample:
+    class_uri: OBI:0000747
+    is_a: Specimen
+    title: Material Sample
+  Site:
+    class_uri: BFO:0000029
+    is_a: ImmaterialEntity
+    title: Site
+  FieldResearchSite:
+    aliases:
+      - research plot
+    description: A site, outside of a laboratory, from which biosamples may be collected.
+    is_a: Site
+    title: Field Research Site
+    comments:
+      - Provides grouping of biosamples at level that's more specific than belonging
+        to the same study
+      - In Bioscales, one might say that rhizosphere soil and bulk soil from around
+        the same plant were obtained at the same site. In this case, the site would
+        have a 1:1 correspondence to the plant.
+      - be very clear that this could be part of a larger site
+      - rhizosphere soil might be considered "from a different site" than outer bulk soil
+      - for Bioscales, one tree might be the scope of a site
+      - might correspond to the identifier on
+
+  PlannedProcess:
+    class_uri: OBI:0000011
+    is_a: NamedThing
+    title: Planned Process
+
+  CollectingBiosamplesFromSite:
+    class_uri: OBI:0000011
+    is_a: PlannedProcess
+    title: Planned Process
+    slots:
+      - site
+      - biosamples
+    comments:
+      - "this illustrates implementing a Biosample relation with a process class"
+      - not to be confused with a reified relationship class
+
+  ReifiedRelationship:
+    class_uri: rdf:Statement
+    see_also:
+      - https://stackoverflow.com/questions/45610092/owl-reification-vs-rdf-reification
+    slots:
+      - subject
+      - predicate
+      - object
+      - notes
+
+  DataListCollection:
+    #    tree_root: true
     description: >-
-      A holder for Person objects
+      A datastructure that can contain lists of instances from any selected classes in the schema
     attributes:
-      entries:
-        range: Person
-        multivalued: true
+      biosample_list:
         inlined: true
+        multivalued: true
+        range: Biosample
+      frs_list:
+        inlined: true
+        multivalued: true
+        range: FieldResearchSite
+      cbfs_list:
+        inlined: true
+        multivalued: true
+        range: CollectingBiosamplesFromSite
+      relations_list:
+        inlined: true
+        multivalued: true
+        range: ReifiedRelationship
 
 slots:
   id:
-    identifier: true
-    slot_uri: schema:identifier
-    range: uriorcurie
     description: A unique identifier for a thing
+    identifier: true
+    range: uriorcurie
+    slot_uri: schema:identifier
   name:
-    slot_uri: schema:name
     description: A human-readable name for a thing
+    slot_uri: schema:name
   description:
-    slot_uri: schema:description
     description: A human-readable description for a thing
-  primary_email:
-    slot_uri: schema:email
-    description: The main email address of a person
-  birth_date:
-    slot_uri: schema:birthDate
-    range: date
-    description: Date on which a person is born
-  age_in_years:
-    range: integer
-    description: Number of years since birth
-  vital_status:
-    range: PersonStatus
-    description: living or dead status
-    
-enums:
-  PersonStatus:
-    permissible_values:
-      ALIVE:
-        description: the person is living
-        meaning: PATO:0001421 
-      DEAD:
-        description: the person is deceased
-        meaning: PATO:0001422
-      UNKNOWN:
-        description: the vital status is not known
-        todos:
-          - map this to an ontology
+    slot_uri: schema:description
+  type:
+    description: The type of a thing. Should be a local class name or an ontology class from a local enumeration
+    comments:
+      - try designates_type (but wouldn't work for enumerated ontology classes)
+      - be conservative about assigning rdf:type as the slot uri
+  collected_from:
+    description: The Site from which a Biosample was collected
+    domain: Biosample
+    range: FieldResearchSite
+    comments:
+      - this illustrates implementing a Biosample relation with a (binary) slot
+    todos:
+      - add an OBO slot_uri ?
+  biosamples:
+    description: A list of Biosamples
+    multivalued: true
+    range: Biosample
+    comments:
+      - for example, the biosamples that wre collected at some site
+
+  site:
+    description: a single site
+    range: FieldResearchSite
+    comments:
+      - for example, the site from which a biosample was collected
+      - could this ever be something other than a FieldResearchSite?
+
+  subject:
+    description: The subject of a relationship
+    range: NamedThing
+    slot_uri: rdf:subject
+    comments:
+      - could this be multivalued?
+
+  predicate:
+    description: The predicate of a relationship
+    slot_uri: rdf:predicate
+    comments:
+      - what's the range here? we would expect the name of a local slot, or the CURIE representation of an object property, preferably from the OBO foundry, skos, schema.org, PROV, etc
+
+  object:
+    description: The object of a relationship
+    range: NamedThing
+    slot_uri: rdf:object
+    comments:
+      - could this be multivalued?
+
+  notes:
+    range: string
+    comments:
+      - this is a placeholder for more structured metadata about a relationship... by whom? when? status?
+
+#  test_slot_1a:
+#    range: string
+#
+#
+#  test_slot_1b:
+#    range: string
+#
+#
+#  test_slot_2a:
+#    range: string
+#
+#
+#  test_slot_2b:
+#    range: string
+
+
+
+enums: { }
