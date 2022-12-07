@@ -2,28 +2,41 @@ biosample_list:
   - id: cleanroom_schema:bs1
     name: Biosample number one
     description: A biosample for testing the schema
-    collected_from: cleanroom_schema:frs1
   - id: cleanroom_schema:bs2
     name: Biosample number two
     description: A biosample for testing the schema
-    collected_from: cleanroom_schema:frs2
+  - id: cleanroom_schema:bs3
+    name: Biosample number three
+    description: A biosample for testing the schema
+    collected_from: cleanroom_schema:frs3
+  - id: cleanroom_schema:bs4
+    name: Biosample number four
 frs_list:
   - id: cleanroom_schema:frs1
     name: Field research site number one
     description: A field research site for testing the schema
   - id: cleanroom_schema:frs2
     name: Field research site number two
+  - id: cleanroom_schema:frs4
+    name: Field research site number three
+
 cbfs_list:
   - id: cleanroom_schema:cbfs1
     name: Collection of biosamples from Field research site number one
     description: A process for testing the schema
     site: cleanroom_schema:frs1
     biosamples:
-    - cleanroom_schema:bs1
-    - cleanroom_schema:bs2
+      - cleanroom_schema:bs1
+      - cleanroom_schema:bs2
   - id: cleanroom_schema:cbfs2
     name: Collection of biosamples from Field research site number one
     description: A process for testing the schema
     site: cleanroom_schema:frs2
     biosamples:
-    - cleanroom_schema:bs999
+      - cleanroom_schema:bs999
+
+relations_list:
+  - subject: cleanroom_schema:bs4
+    predicate: RO:0000056
+    object: cleanroom_schema:frs4
+    notes: "This is a test of a relation between a biosample and a field research site"

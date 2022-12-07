@@ -143,6 +143,10 @@ classes:
         inlined: true
         multivalued: true
         range: CollectingBiosamplesFromSite
+      relations_list:
+        inlined: true
+        multivalued: true
+        range: ReifiedRelationship
 
 slots:
   id:

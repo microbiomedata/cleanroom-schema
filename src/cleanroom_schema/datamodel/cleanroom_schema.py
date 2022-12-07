@@ -1,5 +1,5 @@
 # Auto generated from cleanroom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-12-07T15:42:30
+# Generation date: 2022-12-07T17:06:33
 # Schema: cleanroom-schema
 #
 # id: https://w3id.org/microbiomedata/cleanroom-schema
@@ -359,6 +359,7 @@ class DataListCollection(YAMLRoot):
     biosample_list: Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]] = empty_dict()
     frs_list: Optional[Union[Dict[Union[str, FieldResearchSiteId], Union[dict, FieldResearchSite]], List[Union[dict, FieldResearchSite]]]] = empty_dict()
     cbfs_list: Optional[Union[Dict[Union[str, CollectingBiosamplesFromSiteId], Union[dict, CollectingBiosamplesFromSite]], List[Union[dict, CollectingBiosamplesFromSite]]]] = empty_dict()
+    relations_list: Optional[Union[Union[dict, ReifiedRelationship], List[Union[dict, ReifiedRelationship]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         self._normalize_inlined_as_dict(slot_name="biosample_list", slot_type=Biosample, key_name="id", keyed=True)
@@ -366,6 +367,10 @@ class DataListCollection(YAMLRoot):
         self._normalize_inlined_as_dict(slot_name="frs_list", slot_type=FieldResearchSite, key_name="id", keyed=True)
 
         self._normalize_inlined_as_dict(slot_name="cbfs_list", slot_type=CollectingBiosamplesFromSite, key_name="id", keyed=True)
+
+        if not isinstance(self.relations_list, list):
+            self.relations_list = [self.relations_list] if self.relations_list is not None else []
+        self.relations_list = [v if isinstance(v, ReifiedRelationship) else ReifiedRelationship(**as_dict(v)) for v in self.relations_list]
 
         super().__post_init__(**kwargs)
 
@@ -418,3 +423,6 @@ slots.dataListCollection__frs_list = Slot(uri=CLEANROOM_SCHEMA.frs_list, name="d
 
 slots.dataListCollection__cbfs_list = Slot(uri=CLEANROOM_SCHEMA.cbfs_list, name="dataListCollection__cbfs_list", curie=CLEANROOM_SCHEMA.curie('cbfs_list'),
                    model_uri=CLEANROOM_SCHEMA.dataListCollection__cbfs_list, domain=None, range=Optional[Union[Dict[Union[str, CollectingBiosamplesFromSiteId], Union[dict, CollectingBiosamplesFromSite]], List[Union[dict, CollectingBiosamplesFromSite]]]])
+
+slots.dataListCollection__relations_list = Slot(uri=CLEANROOM_SCHEMA.relations_list, name="dataListCollection__relations_list", curie=CLEANROOM_SCHEMA.curie('relations_list'),
+                   model_uri=CLEANROOM_SCHEMA.dataListCollection__relations_list, domain=None, range=Optional[Union[Union[dict, ReifiedRelationship], List[Union[dict, ReifiedRelationship]]]])
