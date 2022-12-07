@@ -1,5 +1,5 @@
 # Auto generated from cleanroom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-12-07T11:47:32
+# Generation date: 2022-12-07T12:28:29
 # Schema: cleanroom-schema
 #
 # id: https://w3id.org/microbiomedata/cleanroom-schema
@@ -32,9 +32,14 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-CLEANROOM_SCHEMA = CurieNamespace('cleanroom_schema', 'https://w3id.org/microbiomedata/cleanroom-schema/')
+BFO = CurieNamespace('BFO', 'https://purl.obolibrary.org/obo/BFO_')
+OBI = CurieNamespace('OBI', 'https://purl.obolibrary.org/obo/OBI_')
+OBO = CurieNamespace('OBO', 'https://purl.obolibrary.org/obo/')
+BIOSAMPLE_RELATIONS = CurieNamespace('biosample_relations', 'https://example.com/biosample_relations')
+CLEANROOM_SCHEMA = CurieNamespace('cleanroom_schema', 'https://example.com/biosample_relations/cleanroom-schema/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-SCHEMA = CurieNamespace('schema', 'http://example.org/UNKNOWN/schema/')
+SCHEMA = CurieNamespace('schema', 'http://schema.org/')
+XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = CLEANROOM_SCHEMA
 
 
@@ -42,6 +47,42 @@ DEFAULT_ = CLEANROOM_SCHEMA
 
 # Class references
 class NamedThingId(URIorCURIE):
+    pass
+
+
+class MaterialEntityId(NamedThingId):
+    pass
+
+
+class ImmaterialEntityId(NamedThingId):
+    pass
+
+
+class SpecimenId(MaterialEntityId):
+    pass
+
+
+class BiosampleId(SpecimenId):
+    pass
+
+
+class MaterialSampleId(SpecimenId):
+    pass
+
+
+class SiteId(ImmaterialEntityId):
+    pass
+
+
+class FieldResearchSiteId(SiteId):
+    pass
+
+
+class PlannedProcessId(NamedThingId):
+    pass
+
+
+class CollectingBiosamplesFromSiteId(PlannedProcessId):
     pass
 
 
@@ -77,6 +118,211 @@ class NamedThing(YAMLRoot):
 
 
 @dataclass
+class MaterialEntity(NamedThing):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BFO["0000040"]
+    class_class_curie: ClassVar[str] = "BFO:0000040"
+    class_name: ClassVar[str] = "MaterialEntity"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.MaterialEntity
+
+    id: Union[str, MaterialEntityId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MaterialEntityId):
+            self.id = MaterialEntityId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class ImmaterialEntity(NamedThing):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BFO["0000141"]
+    class_class_curie: ClassVar[str] = "BFO:0000141"
+    class_name: ClassVar[str] = "ImmaterialEntity"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.ImmaterialEntity
+
+    id: Union[str, ImmaterialEntityId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, ImmaterialEntityId):
+            self.id = ImmaterialEntityId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Specimen(MaterialEntity):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OBI["0100051"]
+    class_class_curie: ClassVar[str] = "OBI:0100051"
+    class_name: ClassVar[str] = "Specimen"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.Specimen
+
+    id: Union[str, SpecimenId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SpecimenId):
+            self.id = SpecimenId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Biosample(Specimen):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.Biosample
+    class_class_curie: ClassVar[str] = "cleanroom_schema:Biosample"
+    class_name: ClassVar[str] = "Biosample"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.Biosample
+
+    id: Union[str, BiosampleId] = None
+    collected_from: Optional[Union[str, FieldResearchSiteId]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, BiosampleId):
+            self.id = BiosampleId(self.id)
+
+        if self.collected_from is not None and not isinstance(self.collected_from, FieldResearchSiteId):
+            self.collected_from = FieldResearchSiteId(self.collected_from)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class MaterialSample(Specimen):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OBI["0000747"]
+    class_class_curie: ClassVar[str] = "OBI:0000747"
+    class_name: ClassVar[str] = "MaterialSample"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.MaterialSample
+
+    id: Union[str, MaterialSampleId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MaterialSampleId):
+            self.id = MaterialSampleId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Site(ImmaterialEntity):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = BFO["0000029"]
+    class_class_curie: ClassVar[str] = "BFO:0000029"
+    class_name: ClassVar[str] = "Site"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.Site
+
+    id: Union[str, SiteId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, SiteId):
+            self.id = SiteId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class FieldResearchSite(Site):
+    """
+    A site, outside of a laboratory, from which biosamples may be collected.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.FieldResearchSite
+    class_class_curie: ClassVar[str] = "cleanroom_schema:FieldResearchSite"
+    class_name: ClassVar[str] = "FieldResearchSite"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.FieldResearchSite
+
+    id: Union[str, FieldResearchSiteId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, FieldResearchSiteId):
+            self.id = FieldResearchSiteId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class PlannedProcess(NamedThing):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OBI["0000011"]
+    class_class_curie: ClassVar[str] = "OBI:0000011"
+    class_name: ClassVar[str] = "PlannedProcess"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.PlannedProcess
+
+    id: Union[str, PlannedProcessId] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, PlannedProcessId):
+            self.id = PlannedProcessId(self.id)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class CollectingBiosamplesFromSite(PlannedProcess):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = OBI["0000011"]
+    class_class_curie: ClassVar[str] = "OBI:0000011"
+    class_name: ClassVar[str] = "CollectingBiosamplesFromSite"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.CollectingBiosamplesFromSite
+
+    id: Union[str, CollectingBiosamplesFromSiteId] = None
+    site: Optional[Union[str, SiteId]] = None
+    biosamples: Optional[Union[Union[str, BiosampleId], List[Union[str, BiosampleId]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, CollectingBiosamplesFromSiteId):
+            self.id = CollectingBiosamplesFromSiteId(self.id)
+
+        if self.site is not None and not isinstance(self.site, SiteId):
+            self.site = SiteId(self.site)
+
+        if not isinstance(self.biosamples, list):
+            self.biosamples = [self.biosamples] if self.biosamples is not None else []
+        self.biosamples = [v if isinstance(v, BiosampleId) else BiosampleId(v) for v in self.biosamples]
+
+        super().__post_init__(**kwargs)
+
+
+class ReifiedRelationship(YAMLRoot):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.ReifiedRelationship
+    class_class_curie: ClassVar[str] = "cleanroom_schema:ReifiedRelationship"
+    class_name: ClassVar[str] = "ReifiedRelationship"
+    class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.ReifiedRelationship
+
+
+@dataclass
 class DataLists(YAMLRoot):
     """
     A datastructure that can contain lists of instances from any selected classes in the schema
@@ -88,10 +334,13 @@ class DataLists(YAMLRoot):
     class_name: ClassVar[str] = "DataLists"
     class_model_uri: ClassVar[URIRef] = CLEANROOM_SCHEMA.DataLists
 
-    nt_list: Optional[Union[Dict[Union[str, NamedThingId], Union[dict, NamedThing]], List[Union[dict, NamedThing]]]] = empty_dict()
+    biosample_list: Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]] = empty_dict()
+    frs_list: Optional[Union[Dict[Union[str, FieldResearchSiteId], Union[dict, FieldResearchSite]], List[Union[dict, FieldResearchSite]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="nt_list", slot_type=NamedThing, key_name="id", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="biosample_list", slot_type=Biosample, key_name="id", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="frs_list", slot_type=FieldResearchSite, key_name="id", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -112,5 +361,20 @@ slots.name = Slot(uri=SCHEMA.name, name="name", curie=SCHEMA.curie('name'),
 slots.description = Slot(uri=SCHEMA.description, name="description", curie=SCHEMA.curie('description'),
                    model_uri=CLEANROOM_SCHEMA.description, domain=None, range=Optional[str])
 
-slots.dataLists__nt_list = Slot(uri=CLEANROOM_SCHEMA.nt_list, name="dataLists__nt_list", curie=CLEANROOM_SCHEMA.curie('nt_list'),
-                   model_uri=CLEANROOM_SCHEMA.dataLists__nt_list, domain=None, range=Optional[Union[Dict[Union[str, NamedThingId], Union[dict, NamedThing]], List[Union[dict, NamedThing]]]])
+slots.type = Slot(uri=CLEANROOM_SCHEMA.type, name="type", curie=CLEANROOM_SCHEMA.curie('type'),
+                   model_uri=CLEANROOM_SCHEMA.type, domain=None, range=Optional[str])
+
+slots.collected_from = Slot(uri=CLEANROOM_SCHEMA.collected_from, name="collected_from", curie=CLEANROOM_SCHEMA.curie('collected_from'),
+                   model_uri=CLEANROOM_SCHEMA.collected_from, domain=Biosample, range=Optional[Union[str, FieldResearchSiteId]])
+
+slots.biosamples = Slot(uri=CLEANROOM_SCHEMA.biosamples, name="biosamples", curie=CLEANROOM_SCHEMA.curie('biosamples'),
+                   model_uri=CLEANROOM_SCHEMA.biosamples, domain=None, range=Optional[Union[Union[str, BiosampleId], List[Union[str, BiosampleId]]]])
+
+slots.site = Slot(uri=CLEANROOM_SCHEMA.site, name="site", curie=CLEANROOM_SCHEMA.curie('site'),
+                   model_uri=CLEANROOM_SCHEMA.site, domain=None, range=Optional[Union[str, SiteId]])
+
+slots.dataLists__biosample_list = Slot(uri=CLEANROOM_SCHEMA.biosample_list, name="dataLists__biosample_list", curie=CLEANROOM_SCHEMA.curie('biosample_list'),
+                   model_uri=CLEANROOM_SCHEMA.dataLists__biosample_list, domain=None, range=Optional[Union[Dict[Union[str, BiosampleId], Union[dict, Biosample]], List[Union[dict, Biosample]]]])
+
+slots.dataLists__frs_list = Slot(uri=CLEANROOM_SCHEMA.frs_list, name="dataLists__frs_list", curie=CLEANROOM_SCHEMA.curie('frs_list'),
+                   model_uri=CLEANROOM_SCHEMA.dataLists__frs_list, domain=None, range=Optional[Union[Dict[Union[str, FieldResearchSiteId], Union[dict, FieldResearchSite]], List[Union[dict, FieldResearchSite]]]])

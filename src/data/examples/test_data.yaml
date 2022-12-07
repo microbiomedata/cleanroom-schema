@@ -1,7 +1,15 @@
-nt_list:
-  - id: cleanroom_schema:nt1
-    name: Named thin number one
-    description: A named thing for testing the schema
-  - id: cleanroom_schema:nt2
-    name: Named thing number two
-
+frs_list:
+  - id: cleanroom_schema:frs1
+    name: Field research site number one
+    description: A field research site for testing the schema
+  - id: cleanroom_schema:frs2
+    name: Field research site number two
+biosample_list:
+  - id: cleanroom_schema:bs1
+    name: Biosample number one
+    description: A biosample for testing the schema
+    collected_from: cleanroom_schema:frs1
+  - id: cleanroom_schema:bs2
+    name: Biosample number two
+    description: A biosample for testing the schema
+    collected_from: cleanroom_schema:frs2

@@ -8,11 +8,16 @@ see_also:
   - https://microbiomedata.github.io/cleanroom-schema
 
 prefixes:
-  cleanroom_schema: https://w3id.org/microbiomedata/cleanroom-schema/
+  BFO: https://purl.obolibrary.org/obo/BFO_
+  OBI: https://purl.obolibrary.org/obo/OBI_
+  OBO: https://purl.obolibrary.org/obo/
+  biosample_relations: https://example.com/biosample_relations
+  cleanroom_schema: https://example.com/biosample_relations/cleanroom-schema/
   linkml: https://w3id.org/linkml/
-#  biolink: https://w3id.org/biolink/
-#  schema: http://schema.org/
+  schema: http://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
 #  PATO: http://purl.obolibrary.org/obo/PATO_
+#  biolink: https://w3id.org/biolink/
 #  example: https://example.org/
 default_prefix: cleanroom_schema
 default_range: string
@@ -30,14 +35,72 @@ classes:
       - name
       - description
     class_uri: schema:Thing
+    comments:
+      - "class_uri: BFO:0000001?"
+  MaterialEntity:
+    title: Material Entity
+    class_uri: BFO:0000040
+    is_a: NamedThing
+  ImmaterialEntity:
+    title: Immaterial Entity
+    class_uri: BFO:0000141
+    is_a: NamedThing
+  Specimen:
+    title: Specimen
+    class_uri: OBI:0100051
+    is_a: MaterialEntity
+  Biosample:
+    title: Biosample
+    is_a: Specimen
+    slots:
+      - collected_from
+  MaterialSample:
+    title: Material Sample
+    class_uri: OBI:0000747
+    is_a: Specimen
+  Site:
+    title: Site
+    class_uri: BFO:0000029
+    is_a: ImmaterialEntity
+  FieldResearchSite:
+    title: Field Research Site
+    is_a: Site
+    description: A site, outside of a laboratory, from which biosamples may be collected.
+    comments:
+      - Provides grouping of biosamples at level that's more specific than belonging
+        to the same study
+      - In Bioscales, one might say that rhizosphere soil and bulk soil from around
+        the same plant were obtained at the same site. In this case, the site would
+        have a 1:1 correspondence to the plant.
+  PlannedProcess:
+    title: Planned Process
+    class_uri: OBI:0000011
+    is_a: NamedThing
+
+  CollectingBiosamplesFromSite:
+    title: Planned Process
+    class_uri: OBI:0000011
+    is_a: PlannedProcess
+    slots:
+      - site
+      - biosamples
+    comments:
+      - "this illustrates implementing a Biosample relation with a process class"
+      - not to be confused with a reified relationship class
+
+  ReifiedRelationship: { }
 
   DataLists:
     tree_root: true
     description: >-
       A datastructure that can contain lists of instances from any selected classes in the schema
     attributes:
-      nt_list:
-        range: NamedThing
+      biosample_list:
+        range: Biosample
+        multivalued: true
+        inlined: true
+      frs_list:
+        range: FieldResearchSite
         multivalued: true
         inlined: true
 
@@ -53,6 +116,33 @@ slots:
   description:
     slot_uri: schema:description
     description: A human-readable description for a thing
+  type:
+    description: The type of a thing. Should be a local class name or an ontology class from a local enumeration
+    comments:
+      - try designates_type (but wouldn't work for enumerated ontology classes)
+      - be conservative about assigning rdf:type as the slot uri
+  collected_from:
+    description: The Site from which a Biosample was collected
+    range: FieldResearchSite
+    domain: Biosample
+    comments:
+      - this illustrates implementing a Biosample relation with a (binary) slot
+    todos:
+      - add an OBO slot_uri ?
+  biosamples:
+    description: A list of Biosamples
+    comments:
+      - for example, the biosamples that wre collected at some site
+    range: Biosample
+    multivalued: true
+  site:
+    description: a single site
+    comments:
+      - for example, the site from which a biosample was collected
+    range: Site
 
-    
-enums: {}
+
+
+
+
+enums: { }
