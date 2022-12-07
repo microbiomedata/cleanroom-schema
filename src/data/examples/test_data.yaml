@@ -1,0 +1,7 @@
+nt_list:
+  - id: cleanroom_schema:nt1
+    name: Named thin number one
+    description: A named thing for testing the schema
+  - id: cleanroom_schema:nt2
+    name: Named thing number two
+
