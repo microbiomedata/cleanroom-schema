@@ -1,5 +1,5 @@
 # Auto generated from cleanroom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-12-07T17:06:33
+# Generation date: 2022-12-07T18:31:58
 # Schema: cleanroom-schema
 #
 # id: https://w3id.org/microbiomedata/cleanroom-schema
@@ -33,13 +33,14 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
 BFO = CurieNamespace('BFO', 'https://purl.obolibrary.org/obo/BFO_')
+GOLD = CurieNamespace('GOLD', 'http://identifiers.org/gold/')
 OBI = CurieNamespace('OBI', 'https://purl.obolibrary.org/obo/OBI_')
 OBO = CurieNamespace('OBO', 'https://purl.obolibrary.org/obo/')
 BIOSAMPLE_RELATIONS = CurieNamespace('biosample_relations', 'https://example.com/biosample_relations')
 CLEANROOM_SCHEMA = CurieNamespace('cleanroom_schema', 'https://example.com/biosample_relations/cleanroom-schema/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 RDF = CurieNamespace('rdf', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#')
-SCHEMA = CurieNamespace('schema', 'http://schema.org/')
+SCHEMA = CurieNamespace('schema', 'https://schema.org/')
 XSD = CurieNamespace('xsd', 'http://www.w3.org/2001/XMLSchema#')
 DEFAULT_ = CLEANROOM_SCHEMA
 

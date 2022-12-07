@@ -6,17 +6,19 @@ description: |-
 license: MIT
 see_also:
   - https://microbiomedata.github.io/cleanroom-schema
+  - https://github.com/microbiomedata/nmdc-schema/issues/518
 
 prefixes:
   BFO: https://purl.obolibrary.org/obo/BFO_
+  GOLD: http://identifiers.org/gold/
   OBI: https://purl.obolibrary.org/obo/OBI_
   OBO: https://purl.obolibrary.org/obo/
   biosample_relations: https://example.com/biosample_relations
   cleanroom_schema: https://example.com/biosample_relations/cleanroom-schema/
   linkml: https://w3id.org/linkml/
-  schema: http://schema.org/
-  xsd: http://www.w3.org/2001/XMLSchema#
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  schema: https://schema.org/
+  xsd: http://www.w3.org/2001/XMLSchema#
 #  PATO: http://purl.obolibrary.org/obo/PATO_
 #  biolink: https://w3id.org/biolink/
 #  example: https://example.org/
@@ -90,6 +92,8 @@ classes:
     is_a: ImmaterialEntity
     title: Site
   FieldResearchSite:
+    aliases:
+      - research plot
     description: A site, outside of a laboratory, from which biosamples may be collected.
     is_a: Site
     title: Field Research Site
@@ -99,6 +103,10 @@ classes:
       - In Bioscales, one might say that rhizosphere soil and bulk soil from around
         the same plant were obtained at the same site. In this case, the site would
         have a 1:1 correspondence to the plant.
+      - be very clear that this could be part of a larger site
+      - rhizosphere soil might be considered "from a different site" than outer bulk soil
+      - for Bioscales, one tree might be the scope of a site
+      - might correspond to the identifier on
 
   PlannedProcess:
     class_uri: OBI:0000011

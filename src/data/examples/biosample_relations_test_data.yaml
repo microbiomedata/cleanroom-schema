@@ -1,42 +1,32 @@
 biosample_list:
-  - id: cleanroom_schema:bs1
-    name: Biosample number one
-    description: A biosample for testing the schema
-  - id: cleanroom_schema:bs2
-    name: Biosample number two
-    description: A biosample for testing the schema
-  - id: cleanroom_schema:bs3
-    name: Biosample number three
-    description: A biosample for testing the schema
-    collected_from: cleanroom_schema:frs3
-  - id: cleanroom_schema:bs4
-    name: Biosample number four
+  - id: GOLD:Gb0305833
+    name: Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33 endosphere
+    description: Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA
+    collected_from: GOLD:BESC-13-CL1_35_33
+  - id: GOLD:Gb0291692
+    name: Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33
+    description: Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA
+    collected_from: GOLD:BESC-13-CL1_35_33
+  - id: GOLD:Gb0291582
+    name: Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33
+    description: Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA
+    collected_from: GOLD:BESC-13-CL1_35_33
+
 frs_list:
-  - id: cleanroom_schema:frs1
-    name: Field research site number one
-    description: A field research site for testing the schema
-  - id: cleanroom_schema:frs2
-    name: Field research site number two
-  - id: cleanroom_schema:frs4
-    name: Field research site number three
+  - id: GOLD:BESC-13-CL1_35_33
+    description: Some poplar tree NOS
 
 cbfs_list:
   - id: cleanroom_schema:cbfs1
-    name: Collection of biosamples from Field research site number one
-    description: A process for testing the schema
-    site: cleanroom_schema:frs1
+    name: Collection of biosamples from BESC-13-CL1_35_33
+    site: GOLD:BESC-13-CL1_35_33
     biosamples:
-      - cleanroom_schema:bs1
-      - cleanroom_schema:bs2
-  - id: cleanroom_schema:cbfs2
-    name: Collection of biosamples from Field research site number one
-    description: A process for testing the schema
-    site: cleanroom_schema:frs2
-    biosamples:
-      - cleanroom_schema:bs999
+      - GOLD:Gb0305833
+      - GOLD:Gb0291692
+      - GOLD:Gb0291582
 
 relations_list:
-  - subject: cleanroom_schema:bs4
-    predicate: RO:0000056
-    object: cleanroom_schema:frs4
-    notes: "This is a test of a relation between a biosample and a field research site"
+  - subject: GOLD:Gb0305833
+    predicate: collected_from
+    object: GOLD:BESC-13-CL1_35_33
+    notes: "This is a test of a non-binary, non-process relation between a biosample and a field research site"

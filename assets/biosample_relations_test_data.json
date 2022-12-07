@@ -1,0 +1,49 @@
+{
+  "biosample_list": {
+    "GOLD:Gb0305833": {
+      "id": "GOLD:Gb0305833",
+      "name": "Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33 endosphere",
+      "description": "Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA",
+      "collected_from": "GOLD:BESC-13-CL1_35_33"
+    },
+    "GOLD:Gb0291692": {
+      "id": "GOLD:Gb0291692",
+      "name": "Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33",
+      "description": "Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA",
+      "collected_from": "GOLD:BESC-13-CL1_35_33"
+    },
+    "GOLD:Gb0291582": {
+      "id": "GOLD:Gb0291582",
+      "name": "Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33",
+      "description": "Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA",
+      "collected_from": "GOLD:BESC-13-CL1_35_33"
+    }
+  },
+  "frs_list": {
+    "GOLD:BESC-13-CL1_35_33": {
+      "id": "GOLD:BESC-13-CL1_35_33",
+      "description": "Some poplar tree NOS"
+    }
+  },
+  "cbfs_list": {
+    "cleanroom_schema:cbfs1": {
+      "id": "cleanroom_schema:cbfs1",
+      "name": "Collection of biosamples from BESC-13-CL1_35_33",
+      "site": "GOLD:BESC-13-CL1_35_33",
+      "biosamples": [
+        "GOLD:Gb0305833",
+        "GOLD:Gb0291692",
+        "GOLD:Gb0291582"
+      ]
+    }
+  },
+  "relations_list": [
+    {
+      "subject": "GOLD:Gb0305833",
+      "predicate": "collected_from",
+      "object": "GOLD:BESC-13-CL1_35_33",
+      "notes": "This is a test of a non-binary, non-process relation between a biosample and a field research site"
+    }
+  ],
+  "@type": "DataListCollection"
+}

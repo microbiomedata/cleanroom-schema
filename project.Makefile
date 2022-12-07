@@ -10,6 +10,12 @@ assets/biosample_relations_test_data.json: src/cleanroom_schema/schema/cleanroom
 		-o $@ \
 		--schema $^
 
+assets/biosample_relations_test_data.ttl: src/cleanroom_schema/schema/cleanroom_schema.yaml src/data/examples/biosample_relations_test_data.yaml
+	$(RUN) linkml-convert \
+		--target-class DataListCollection \
+		-o $@ \
+		--schema $^
+
 
 #assets/experimental_test_data.json: src/cleanroom_schema/schema/cleanroom_schema.yaml assets/in/experimental_test_data.yaml
 #	$(RUN) linkml-convert \
