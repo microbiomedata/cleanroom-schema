@@ -1,0 +1,89 @@
+type Biosample
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    collectedFrom: FieldResearchSite
+  }
+
+type CollectingBiosamplesFromSite
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+    site: FieldResearchSite
+    biosamples: [Biosample]
+  }
+
+type DataListCollection
+  {
+    biosampleList: [Biosample]
+    frsList: [FieldResearchSite]
+    cbfsList: [CollectingBiosamplesFromSite]
+    relationsList: [ReifiedRelationship]
+  }
+
+type FieldResearchSite
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type ImmaterialEntity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type MaterialEntity
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type MaterialSample
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type NamedThing
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type PlannedProcess
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type ReifiedRelationship
+  {
+    subject: NamedThing
+    predicate: String
+    object: NamedThing
+    notes: String
+  }
+
+type Site
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+
+type Specimen
+  {
+    id: Uriorcurie!
+    name: String
+    description: String
+  }
+

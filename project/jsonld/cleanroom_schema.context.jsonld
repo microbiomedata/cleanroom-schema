@@ -1,0 +1,91 @@
+{
+   "_comments": "Auto generated from cleanroom_schema.yaml by jsonldcontextgen.py version: 0.1.1\n    Generation date: 2022-12-07T19:37:27\n    Schema: cleanroom-schema\n    metamodel version: 1.7.0\n    model version: None\n    \n    id: https://w3id.org/microbiomedata/cleanroom-schema\n    description: Cleanroom reboot of NMDC schema\n    license: MIT\n    ",
+   "@context": {
+      "BFO": {
+         "@id": "https://purl.obolibrary.org/obo/BFO_",
+         "@prefix": true
+      },
+      "GOLD": "http://identifiers.org/gold/",
+      "OBI": {
+         "@id": "https://purl.obolibrary.org/obo/OBI_",
+         "@prefix": true
+      },
+      "OBO": "https://purl.obolibrary.org/obo/",
+      "biosample_relations": {
+         "@id": "https://example.com/biosample_relations",
+         "@prefix": true
+      },
+      "cleanroom_schema": "https://example.com/biosample_relations/cleanroom-schema/",
+      "linkml": "https://w3id.org/linkml/",
+      "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+      "schema": "https://schema.org/",
+      "xsd": "http://www.w3.org/2001/XMLSchema#",
+      "@vocab": "https://example.com/biosample_relations/cleanroom-schema/",
+      "biosamples": {
+         "@type": "@id"
+      },
+      "collected_from": {
+         "@type": "@id"
+      },
+      "biosample_list": {
+         "@type": "@id"
+      },
+      "cbfs_list": {
+         "@type": "@id"
+      },
+      "frs_list": {
+         "@type": "@id"
+      },
+      "relations_list": {
+         "@type": "@id"
+      },
+      "description": {
+         "@id": "schema:description"
+      },
+      "id": "@id",
+      "name": {
+         "@id": "schema:name"
+      },
+      "object": {
+         "@type": "@id",
+         "@id": "rdf:object"
+      },
+      "predicate": {
+         "@id": "rdf:predicate"
+      },
+      "site": {
+         "@type": "@id"
+      },
+      "subject": {
+         "@type": "@id",
+         "@id": "rdf:subject"
+      },
+      "CollectingBiosamplesFromSite": {
+         "@id": "OBI:0000011"
+      },
+      "ImmaterialEntity": {
+         "@id": "BFO:0000141"
+      },
+      "MaterialEntity": {
+         "@id": "BFO:0000040"
+      },
+      "MaterialSample": {
+         "@id": "OBI:0000747"
+      },
+      "NamedThing": {
+         "@id": "schema:Thing"
+      },
+      "PlannedProcess": {
+         "@id": "OBI:0000011"
+      },
+      "ReifiedRelationship": {
+         "@id": "rdf:Statement"
+      },
+      "Site": {
+         "@id": "BFO:0000029"
+      },
+      "Specimen": {
+         "@id": "OBI:0100051"
+      }
+   }
+}
