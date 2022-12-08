@@ -21,16 +21,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/DataLists/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/ExperimentalContainer/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/FieldResearchSite/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
@@ -56,21 +46,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/Person/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/PersonCollection/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/PersonStatus/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/PlannedProcess/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
@@ -91,37 +66,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/TestClass1/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/TestClass2/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/about/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/age_in_years/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/biosample_list/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/biosamples/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/birth_date/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -146,27 +96,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/entries/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/frs_list/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/id/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/list_1/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/list_2/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -181,22 +116,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/nt_list/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/object/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/predicate/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/primary_email/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -216,37 +141,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/test_slot_1a/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/test_slot_1b/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/test_slot_2a/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/test_slot_2b/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/type/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/types/</loc>
-         <lastmod>2022-12-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://microbiomedata.github.io/cleanroom-schema/vital_status/</loc>
          <lastmod>2022-12-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
