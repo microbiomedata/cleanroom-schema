@@ -123,7 +123,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../about.md">
+<a class="md-nav__link" href="../about/">
         About
       </a>
 </li>
@@ -241,8 +241,8 @@
 </ul>
 <h2 id="slots">Slots</h2>
 <p>| Name | Cardinality and Range | Description | Inheritance |
-| ---  | --- | --- | --- || <a href="../id/">id</a> | 1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a> | A unique identifier for a thing | <a href="../NamedThing/">NamedThing</a> |
-| <a href="../name/">name</a> | 0..1 <br/> NONE | A human-readable name for a thing | <a href="../NamedThing/">NamedThing</a> |
+| ---  | --- | --- | --- || <a href="../name/">name</a> | 0..1 <br/> NONE | A human-readable name for a thing | <a href="../NamedThing/">NamedThing</a> |
+| <a href="../id/">id</a> | 1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a> | A unique identifier for a thing | <a href="../NamedThing/">NamedThing</a> |
 | <a href="../description/">description</a> | 0..1 <br/> NONE | A human-readable description for a thing | <a href="../NamedThing/">NamedThing</a> |</p>
 <h2 id="usages">Usages</h2>
 <table>
@@ -282,11 +282,9 @@
 <h2 id="comments">Comments</h2>
 <ul>
 <li>Provides grouping of biosamples at level that's more specific than belonging to the same study</li>
-<li>In Bioscales, one might say that rhizosphere soil and bulk soil from around the same plant were obtained at the same site. In this case, the site would have a 1:1 correspondence to the plant.</li>
 <li>be very clear that this could be part of a larger site</li>
-<li>rhizosphere soil might be considered "from a different site" than outer bulk soil</li>
-<li>for Bioscales, one tree might be the scope of a site</li>
-<li>might correspond to the identifier on</li>
+<li>In Bioscales, one might say that rhizosphere soil and bulk soil from around the same plant were obtained at the same site. In this case, the site would correspond to one tree.</li>
+<li>might correspond to GOLD's identifier an a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -322,13 +320,11 @@ title: Field Research Site
 comments:
 - Provides grouping of biosamples at level that's more specific than belonging to
   the same study
-- In Bioscales, one might say that rhizosphere soil and bulk soil from around the
-  same plant were obtained at the same site. In this case, the site would have a 1:1
-  correspondence to the plant.
 - be very clear that this could be part of a larger site
-- rhizosphere soil might be considered "from a different site" than outer bulk soil
-- for Bioscales, one tree might be the scope of a site
-- might correspond to the identifier on
+- In Bioscales, one might say that rhizosphere soil and bulk soil from around the
+  same plant were obtained at the same site. In this case, the site would correspond
+  to one tree.
+- might correspond to GOLD's identifier an a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 aliases:
 - research plot
@@ -345,13 +341,11 @@ title: Field Research Site
 comments:
 - Provides grouping of biosamples at level that's more specific than belonging to
   the same study
-- In Bioscales, one might say that rhizosphere soil and bulk soil from around the
-  same plant were obtained at the same site. In this case, the site would have a 1:1
-  correspondence to the plant.
 - be very clear that this could be part of a larger site
-- rhizosphere soil might be considered "from a different site" than outer bulk soil
-- for Bioscales, one tree might be the scope of a site
-- might correspond to the identifier on
+- In Bioscales, one might say that rhizosphere soil and bulk soil from around the
+  same plant were obtained at the same site. In this case, the site would correspond
+  to one tree.
+- might correspond to GOLD's identifier an a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 aliases:
 - research plot
