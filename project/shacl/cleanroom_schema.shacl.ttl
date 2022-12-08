@@ -1,0 +1,247 @@
+@prefix BFO: <https://purl.obolibrary.org/obo/BFO_> .
+@prefix OBI: <https://purl.obolibrary.org/obo/OBI_> .
+@prefix cleanroom_schema: <https://example.com/biosample_relations/cleanroom-schema/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cleanroom_schema:DataListCollection a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A datastructure that can contain lists of instances from any selected classes in the schema" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class rdf:Statement ;
+            sh:nodeKind sh:BlankNode ;
+            sh:order 3 ;
+            sh:path cleanroom_schema:relations_list ],
+        [ sh:class cleanroom_schema:FieldResearchSite ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cleanroom_schema:frs_list ],
+        [ sh:class cleanroom_schema:Biosample ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cleanroom_schema:biosample_list ],
+        [ sh:class OBI:0000011 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path cleanroom_schema:cbfs_list ] ;
+    sh:targetClass cleanroom_schema:DataListCollection .
+
+BFO:0000029 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Site" ;
+    sh:property [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ],
+        [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ] ;
+    sh:targetClass BFO:0000029 .
+
+BFO:0000040 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Material Entity" ;
+    sh:property [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ] ;
+    sh:targetClass BFO:0000040 .
+
+BFO:0000141 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Immaterial Entity" ;
+    sh:property [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ] ;
+    sh:targetClass BFO:0000141 .
+
+OBI:0000747 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Material Sample" ;
+    sh:property [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ],
+        [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ] ;
+    sh:targetClass OBI:0000747 .
+
+OBI:0100051 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Specimen" ;
+    sh:property [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ] ;
+    sh:targetClass OBI:0100051 .
+
+rdf:Statement a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path cleanroom_schema:notes ],
+        [ sh:class schema:Thing ;
+            sh:description "The object of a relationship" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path rdf:object ],
+        [ sh:description "The predicate of a relationship" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path rdf:predicate ],
+        [ sh:class schema:Thing ;
+            sh:description "The subject of a relationship" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path rdf:subject ] ;
+    sh:targetClass rdf:Statement .
+
+OBI:0000011 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ),
+        ( rdf:type ) ;
+    sh:name "Planned Process" ;
+    sh:property [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path schema:name ],
+        [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ],
+        [ sh:class cleanroom_schema:Biosample ;
+            sh:description "A list of Biosamples" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cleanroom_schema:biosamples ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:identifier ],
+        [ sh:class cleanroom_schema:FieldResearchSite ;
+            sh:description "a single site" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cleanroom_schema:site ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 4 ;
+            sh:path schema:description ] ;
+    sh:targetClass OBI:0000011 .
+
+cleanroom_schema:Biosample a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Biosample" ;
+    sh:property [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:name ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:identifier ],
+        [ sh:class cleanroom_schema:FieldResearchSite ;
+            sh:description "The Site from which a Biosample was collected" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path cleanroom_schema:collected_from ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path schema:description ] ;
+    sh:targetClass cleanroom_schema:Biosample .
+
+schema:Thing a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A generic grouping for any identifiable entity" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ],
+        [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ] ;
+    sh:targetClass schema:Thing .
+
+cleanroom_schema:FieldResearchSite a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A site, outside of a laboratory, from which biosamples may be collected." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:name "Field Research Site" ;
+    sh:property [ sh:description "A unique identifier for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 0 ;
+            sh:path schema:identifier ],
+        [ sh:description "A human-readable name for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path schema:name ],
+        [ sh:description "A human-readable description for a thing" ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path schema:description ] ;
+    sh:targetClass cleanroom_schema:FieldResearchSite .
+
