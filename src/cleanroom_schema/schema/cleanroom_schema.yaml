@@ -100,13 +100,11 @@ classes:
     comments:
       - Provides grouping of biosamples at level that's more specific than belonging
         to the same study
+      - be very clear that this could be part of a larger site
       - In Bioscales, one might say that rhizosphere soil and bulk soil from around
         the same plant were obtained at the same site. In this case, the site would
-        have a 1:1 correspondence to the plant.
-      - be very clear that this could be part of a larger site
-      - rhizosphere soil might be considered "from a different site" than outer bulk soil
-      - for Bioscales, one tree might be the scope of a site
-      - might correspond to the identifier on
+        correspond to one tree.
+      - "might correspond to GOLD's identifier an a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833"
 
   PlannedProcess:
     class_uri: OBI:0000011
