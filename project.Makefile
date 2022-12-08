@@ -1,4 +1,8 @@
 ## Add your own custom Makefile targets here
+
+RUN = poetry run
+
+
 assets/Cleanroom-schema.pdf: src/cleanroom_schema/schema/cleanroom_schema.yaml
 	$(RUN) gen-yuml \
 		--directory $(dir $@) \
@@ -41,3 +45,6 @@ assets/biosample_relations_test_data.ttl: src/cleanroom_schema/schema/cleanroom_
 #		--db $@ \
 #		--target-class DataListCollection \
 #		--schema $^
+
+test_publishability:
+	$(RUN) test_publishability
