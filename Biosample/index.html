@@ -208,7 +208,7 @@
 <p>URI: <a href="https://example.com/biosample_relations/cleanroom-schema/Biosample">cleanroom_schema:Biosample</a></p>
 <div class="mermaid"> classDiagram
     class Biosample
-      NamedThing &lt;|-- Biosample
+      Specimen &lt;|-- Biosample
 
       Biosample : collected_from
       Biosample : description
@@ -219,7 +219,13 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
+<li><a href="../MaterialEntity/">MaterialEntity</a><ul>
+<li><a href="../Specimen/">Specimen</a><ul>
 <li><strong>Biosample</strong></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -323,7 +329,7 @@
 title: Biosample
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: NamedThing
+is_a: Specimen
 slots:
 - collected_from
 
@@ -335,7 +341,7 @@ slots:
 title: Biosample
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: NamedThing
+is_a: Specimen
 attributes:
   collected_from:
     name: collected_from
