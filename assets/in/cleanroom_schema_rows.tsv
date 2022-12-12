@@ -1,0 +1,4 @@
+schema	id	description	default_prefix	default_range	name	title	license	see_also	comments
+> schema	id	description	default_prefix	default_range	name	title	license	see_also	comments
+>								internal_separator: "|"	internal_separator: "|"
+cleanroom-schema	https://example.com/cleanroom-schema/cleanroom-schema	Cleanroom reboot of NMDC schema	cleanroom_schema	string	cleanroom-schema	cleanroom-schema	MIT	https://microbiomedata.github.io/cleanroom-schema|https://github.com/microbiomedata/nmdc-schema/issues/518	how will data be collected (DataHarmonizer?)|how will data be displayed?

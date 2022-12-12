@@ -1,0 +1,3 @@
+slot	description	slot_uri	aliases	is_a	title	comments	identifier	range	domain	todos	multivalued
+> slot	description	slot_uri	aliases	is_a	title	comments	identifier	range	domain	todos	multivalued
+>			internal_separator: "|"			internal_separator: "|"	""	""	""	internal_separator: "|"	""
