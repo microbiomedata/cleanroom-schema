@@ -26,11 +26,11 @@ assets/biosample_relations_test_data.ttl: src/cleanroom_schema/schema/cleanroom_
 		-o $@ \
 		--schema $^
 
-#assets/test_data.db: src/cleanroom_schema/schema/cleanroom_schema.yaml assets/biosample_relations_test_data.yaml
-#	$(RUN) linkml-sqldb dump \
-#		--db $@ \
-#		--target-class DataListCollection \
-#		--schema $^
+assets/test_data.db: src/cleanroom_schema/schema/cleanroom_schema.yaml assets/biosample_relations_test_data.yaml
+	$(RUN) linkml-sqldb dump \
+		--db $@ \
+		--target-class DataListCollection \
+		--schema $^
 
 test_publishability:
 	$(RUN) test_publishability
