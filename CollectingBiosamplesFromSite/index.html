@@ -210,14 +210,14 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-collectingbiosamplesfromsite">Class: CollectingBiosamplesFromSite</h1>
-<p>URI: <a href="https://purl.obolibrary.org/obo/OBI_0000011">OBI:0000011</a></p>
+<p>URI: <a href="https://example.com/cleanroom-schema/CollectingBiosamplesFromSite">cleanroom_schema:CollectingBiosamplesFromSite</a></p>
 <div class="mermaid"> classDiagram
     class CollectingBiosamplesFromSite
       PlannedProcess &lt;|-- CollectingBiosamplesFromSite
 
       CollectingBiosamplesFromSite : description
-      CollectingBiosamplesFromSite : has_input
-      CollectingBiosamplesFromSite : has_output
+      CollectingBiosamplesFromSite : has_inputs
+      CollectingBiosamplesFromSite : has_outputs
       CollectingBiosamplesFromSite : id
       CollectingBiosamplesFromSite : name
       CollectingBiosamplesFromSite : participating_agent
@@ -245,16 +245,22 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../has_input/">has_input</a></td>
-<td>0..1 <br/> <a href="../NamedThing/">NamedThing</a></td>
+<td><a href="../has_inputs/">has_inputs</a></td>
+<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
 <td></td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../has_output/">has_output</a></td>
-<td>0..1 <br/> <a href="../NamedThing/">NamedThing</a></td>
+<td><a href="../has_outputs/">has_outputs</a></td>
+<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
 <td></td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> NONE</td>
+<td>A human-readable description for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../id/">id</a></td>
@@ -273,12 +279,6 @@
 <td>0..1 <br/> <a href="../Agent/">Agent</a></td>
 <td></td>
 <td><a href="../PlannedProcess/">PlannedProcess</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> NONE</td>
-<td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 </tbody>
 </table>
@@ -304,7 +304,6 @@
 <h2 id="comments">Comments</h2>
 <ul>
 <li>this illustrates implementing a Biosample relation with a process class</li>
-<li>not to be confused with a reified relationship class</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -322,7 +321,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>OBI:0000011</td>
+<td>cleanroom_schema:CollectingBiosamplesFromSite</td>
 </tr>
 <tr>
 <td>native</td>
@@ -335,20 +334,18 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: CollectingBiosamplesFromSite
-title: Planned Process
+title: Collecting Biosamples From Site
 comments:
 - this illustrates implementing a Biosample relation with a process class
-- not to be confused with a reified relationship class
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 is_a: PlannedProcess
 slots:
-- has_input
-- has_output
+- has_inputs
+- has_outputs
 slot_usage:
-  has_input:
-    name: has_input
-    multivalued: false
+  has_inputs:
+    name: has_inputs
     domain_of:
     - PlannedProcess
     - CollectingBiosamplesFromSite
@@ -356,9 +353,8 @@ slot_usage:
     - CollectingBiosamplesFromSite
     range: Site
     required: true
-  has_output:
-    name: has_output
-    multivalued: true
+  has_outputs:
+    name: has_outputs
     domain_of:
     - PlannedProcess
     - CollectingBiosamplesFromSite
@@ -366,25 +362,21 @@ slot_usage:
     - CollectingBiosamplesFromSite
     range: Biosample
     required: true
-    inlined: false
-class_uri: OBI:0000011
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: CollectingBiosamplesFromSite
-title: Planned Process
+title: Collecting Biosamples From Site
 comments:
 - this illustrates implementing a Biosample relation with a process class
-- not to be confused with a reified relationship class
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 is_a: PlannedProcess
 slot_usage:
-  has_input:
-    name: has_input
-    multivalued: false
+  has_inputs:
+    name: has_inputs
     domain_of:
     - PlannedProcess
     - CollectingBiosamplesFromSite
@@ -392,9 +384,8 @@ slot_usage:
     - CollectingBiosamplesFromSite
     range: Site
     required: true
-  has_output:
-    name: has_output
-    multivalued: true
+  has_outputs:
+    name: has_outputs
     domain_of:
     - PlannedProcess
     - CollectingBiosamplesFromSite
@@ -402,14 +393,13 @@ slot_usage:
     - CollectingBiosamplesFromSite
     range: Biosample
     required: true
-    inlined: false
 attributes:
-  has_input:
-    name: has_input
+  has_inputs:
+    name: has_inputs
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    multivalued: false
-    alias: has_input
+    multivalued: true
+    alias: has_inputs
     owner: CollectingBiosamplesFromSite
     domain_of:
     - PlannedProcess
@@ -418,12 +408,12 @@ attributes:
     - CollectingBiosamplesFromSite
     range: Site
     required: true
-  has_output:
-    name: has_output
+  has_outputs:
+    name: has_outputs
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
     multivalued: true
-    alias: has_output
+    alias: has_outputs
     owner: CollectingBiosamplesFromSite
     domain_of:
     - PlannedProcess
@@ -432,7 +422,6 @@ attributes:
     - CollectingBiosamplesFromSite
     range: Biosample
     required: true
-    inlined: false
   participating_agent:
     name: participating_agent
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
@@ -447,7 +436,6 @@ attributes:
     description: A unique identifier for a thing
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    slot_uri: schema:identifier
     identifier: true
     alias: id
     owner: CollectingBiosamplesFromSite
@@ -459,7 +447,6 @@ attributes:
     description: A human-readable name for a thing
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    slot_uri: schema:name
     alias: name
     owner: CollectingBiosamplesFromSite
     domain_of:
@@ -470,13 +457,11 @@ attributes:
     description: A human-readable description for a thing
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    slot_uri: schema:description
     alias: description
     owner: CollectingBiosamplesFromSite
     domain_of:
     - NamedThing
     range: string
-class_uri: OBI:0000011
 
 </code></pre>
 </details>

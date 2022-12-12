@@ -171,7 +171,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/has_inputs/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/has_output/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/has_outputs/</loc>
          <lastmod>2022-12-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -212,6 +222,11 @@
     </url>
     <url>
          <loc>https://microbiomedata.github.io/cleanroom-schema/participating_agent/</loc>
+         <lastmod>2022-12-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://microbiomedata.github.io/cleanroom-schema/placeholder/</loc>
          <lastmod>2022-12-12</lastmod>
          <changefreq>daily</changefreq>
     </url>

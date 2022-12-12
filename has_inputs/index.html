@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://microbiomedata.github.io/cleanroom-schema/frs_list/">
+        <link rel="canonical" href="https://microbiomedata.github.io/cleanroom-schema/has_inputs/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: frs_list - cleanroom-schema</title>
+        <title>Slot: has_inputs - cleanroom-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-frs_list" class="md-skip">
+        <a href="#slot-has_inputs" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: frs_list
+              Slot: has_inputs
             
           </span>
         </div>
@@ -310,14 +310,14 @@
                 
                   
 
-  <a href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/frs_list.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/microbiomedata/cleanroom-schema/edit/master/docs/has_inputs.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-frs_list">Slot: frs_list</h1>
-<p>URI: <a href="https://example.com/cleanroom-schema/frs_list">cleanroom_schema:frs_list</a></p>
+<h1 id="slot-has_inputs">Slot: has_inputs</h1>
+<p>URI: <a href="https://example.com/cleanroom-schema/has_inputs">cleanroom_schema:has_inputs</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -330,14 +330,18 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../DataListCollection/">DataListCollection</a></td>
-<td>A datastructure that can contain lists of instances from any selected classes...</td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
+<td></td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../FieldResearchSite/">FieldResearchSite</a></li>
+<li>Range: <a href="../NamedThing/">NamedThing</a></li>
 <li>Multivalued: True</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
@@ -348,17 +352,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: frs_list
+<pre><code class="language-yaml">name: has_inputs
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 multivalued: true
-alias: frs_list
-owner: DataListCollection
+alias: has_inputs
 domain_of:
-- DataListCollection
-range: FieldResearchSite
-inlined: true
-inlined_as_list: true
+- PlannedProcess
+- CollectingBiosamplesFromSite
+range: NamedThing
 
 </code></pre>
 

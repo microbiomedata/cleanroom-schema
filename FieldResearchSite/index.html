@@ -216,7 +216,7 @@
 </a>
 <h1 id="class-fieldresearchsite">Class: FieldResearchSite</h1>
 <p><em>A site, outside of a laboratory, from which biosamples may be collected.</em></p>
-<p>URI: <a href="https://example.com/biosample_relations/cleanroom-schema/FieldResearchSite">cleanroom_schema:FieldResearchSite</a></p>
+<p>URI: <a href="https://example.com/cleanroom-schema/FieldResearchSite">cleanroom_schema:FieldResearchSite</a></p>
 <div class="mermaid"> classDiagram
     class FieldResearchSite
       Site &lt;|-- FieldResearchSite
@@ -251,6 +251,12 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> NONE</td>
+<td>A human-readable description for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+<tr>
 <td><a href="../id/">id</a></td>
 <td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
 <td>A unique identifier for a thing</td>
@@ -260,12 +266,6 @@
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> NONE</td>
 <td>A human-readable name for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> NONE</td>
-<td>A human-readable description for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 </tbody>
@@ -304,7 +304,7 @@
 <li>Provides grouping of biosamples at level that's more specific than belonging to the same study</li>
 <li>be very clear that this could be part of a larger site</li>
 <li>In Bioscales, one might say that rhizosphere soil and bulk soil from around the same plant were obtained at the same site. In this case, the site would correspond to one tree.</li>
-<li>might correspond to GOLD's identifier an a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833</li>
+<li>might correspond to GOLD's identifier on a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -344,7 +344,7 @@ comments:
 - In Bioscales, one might say that rhizosphere soil and bulk soil from around the
   same plant were obtained at the same site. In this case, the site would correspond
   to one tree.
-- might correspond to GOLD's identifier an a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833
+- might correspond to GOLD's identifier on a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 aliases:
 - research plot
@@ -365,7 +365,7 @@ comments:
 - In Bioscales, one might say that rhizosphere soil and bulk soil from around the
   same plant were obtained at the same site. In this case, the site would correspond
   to one tree.
-- might correspond to GOLD's identifier an a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833
+- might correspond to GOLD's identifier on a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 aliases:
 - research plot
@@ -377,7 +377,6 @@ attributes:
     description: A unique identifier for a thing
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    slot_uri: schema:identifier
     identifier: true
     alias: id
     owner: FieldResearchSite
@@ -389,7 +388,6 @@ attributes:
     description: A human-readable name for a thing
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    slot_uri: schema:name
     alias: name
     owner: FieldResearchSite
     domain_of:
@@ -400,7 +398,6 @@ attributes:
     description: A human-readable description for a thing
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    slot_uri: schema:description
     alias: description
     owner: FieldResearchSite
     domain_of:

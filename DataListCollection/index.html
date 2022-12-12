@@ -196,12 +196,13 @@
 </a>
 <h1 id="class-datalistcollection">Class: DataListCollection</h1>
 <p><em>A datastructure that can contain lists of instances from any selected classes in the schema</em></p>
-<p>URI: <a href="https://example.com/biosample_relations/cleanroom-schema/DataListCollection">cleanroom_schema:DataListCollection</a></p>
+<p>URI: <a href="https://example.com/cleanroom-schema/DataListCollection">cleanroom_schema:DataListCollection</a></p>
 <div class="mermaid"> classDiagram
     class DataListCollection
       DataListCollection : biosample_list
       DataListCollection : cbfs_list
       DataListCollection : frs_list
+      DataListCollection : nt_list
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -231,6 +232,12 @@
 <tr>
 <td><a href="../cbfs_list/">cbfs_list</a></td>
 <td>0..* <br/> <a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../nt_list/">nt_list</a></td>
+<td>0..* <br/> <a href="../NamedThing/">NamedThing</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -277,6 +284,7 @@ attributes:
     multivalued: true
     range: Biosample
     inlined: true
+    inlined_as_list: true
   frs_list:
     name: frs_list
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
@@ -284,6 +292,7 @@ attributes:
     multivalued: true
     range: FieldResearchSite
     inlined: true
+    inlined_as_list: true
   cbfs_list:
     name: cbfs_list
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
@@ -291,6 +300,16 @@ attributes:
     multivalued: true
     range: CollectingBiosamplesFromSite
     inlined: true
+    inlined_as_list: true
+  nt_list:
+    name: nt_list
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    multivalued: true
+    range: NamedThing
+    inlined: true
+    inlined_as_list: true
+tree_root: true
 
 </code></pre>
 </details>
@@ -313,6 +332,7 @@ attributes:
     - DataListCollection
     range: Biosample
     inlined: true
+    inlined_as_list: true
   frs_list:
     name: frs_list
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
@@ -324,6 +344,7 @@ attributes:
     - DataListCollection
     range: FieldResearchSite
     inlined: true
+    inlined_as_list: true
   cbfs_list:
     name: cbfs_list
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
@@ -335,6 +356,20 @@ attributes:
     - DataListCollection
     range: CollectingBiosamplesFromSite
     inlined: true
+    inlined_as_list: true
+  nt_list:
+    name: nt_list
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    multivalued: true
+    alias: nt_list
+    owner: DataListCollection
+    domain_of:
+    - DataListCollection
+    range: NamedThing
+    inlined: true
+    inlined_as_list: true
+tree_root: true
 
 </code></pre>
 </details>
