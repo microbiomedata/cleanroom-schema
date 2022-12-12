@@ -215,11 +215,12 @@
     class CollectingBiosamplesFromSite
       PlannedProcess &lt;|-- CollectingBiosamplesFromSite
 
-      CollectingBiosamplesFromSite : biosamples
       CollectingBiosamplesFromSite : description
+      CollectingBiosamplesFromSite : has_input
+      CollectingBiosamplesFromSite : has_output
       CollectingBiosamplesFromSite : id
       CollectingBiosamplesFromSite : name
-      CollectingBiosamplesFromSite : site
+      CollectingBiosamplesFromSite : participating_agent
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -244,16 +245,22 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../site/">site</a></td>
-<td>0..1 <br/> <a href="../FieldResearchSite/">FieldResearchSite</a></td>
-<td>a single site</td>
+<td><a href="../has_input/">has_input</a></td>
+<td>0..1 <br/> <a href="../NamedThing/">NamedThing</a></td>
+<td></td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../biosamples/">biosamples</a></td>
-<td>0..* <br/> <a href="../Biosample/">Biosample</a></td>
-<td>A list of Biosamples</td>
+<td><a href="../has_output/">has_output</a></td>
+<td>0..1 <br/> <a href="../NamedThing/">NamedThing</a></td>
+<td></td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+<td>A unique identifier for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -262,15 +269,15 @@
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 <tr>
+<td><a href="../participating_agent/">participating_agent</a></td>
+<td>0..1 <br/> <a href="../Agent/">Agent</a></td>
+<td></td>
+<td><a href="../PlannedProcess/">PlannedProcess</a></td>
+</tr>
+<tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> NONE</td>
 <td>A human-readable description for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
-</tr>
-<tr>
-<td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
-<td>A unique identifier for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
 </tbody>
@@ -336,8 +343,30 @@ from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 is_a: PlannedProcess
 slots:
-- site
-- biosamples
+- has_input
+- has_output
+slot_usage:
+  has_input:
+    name: has_input
+    multivalued: false
+    domain_of:
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    range: Site
+    required: true
+  has_output:
+    name: has_output
+    multivalued: true
+    domain_of:
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    range: Biosample
+    required: true
+    inlined: false
 class_uri: OBI:0000011
 
 </code></pre>
@@ -352,33 +381,67 @@ comments:
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
 is_a: PlannedProcess
+slot_usage:
+  has_input:
+    name: has_input
+    multivalued: false
+    domain_of:
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    range: Site
+    required: true
+  has_output:
+    name: has_output
+    multivalued: true
+    domain_of:
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    range: Biosample
+    required: true
+    inlined: false
 attributes:
-  site:
-    name: site
-    description: a single site
-    comments:
-    - for example, the site from which a biosample was collected
-    - could this ever be something other than a FieldResearchSite?
+  has_input:
+    name: has_input
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
-    alias: site
+    multivalued: false
+    alias: has_input
     owner: CollectingBiosamplesFromSite
     domain_of:
+    - PlannedProcess
     - CollectingBiosamplesFromSite
-    range: FieldResearchSite
-  biosamples:
-    name: biosamples
-    description: A list of Biosamples
-    comments:
-    - for example, the biosamples that wre collected at some site
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    range: Site
+    required: true
+  has_output:
+    name: has_output
     from_schema: https://w3id.org/microbiomedata/cleanroom-schema
     rank: 1000
     multivalued: true
-    alias: biosamples
+    alias: has_output
     owner: CollectingBiosamplesFromSite
     domain_of:
+    - PlannedProcess
+    - CollectingBiosamplesFromSite
+    - PlannedProcess
     - CollectingBiosamplesFromSite
     range: Biosample
+    required: true
+    inlined: false
+  participating_agent:
+    name: participating_agent
+    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    rank: 1000
+    alias: participating_agent
+    owner: CollectingBiosamplesFromSite
+    domain_of:
+    - PlannedProcess
+    range: Agent
   id:
     name: id
     description: A unique identifier for a thing

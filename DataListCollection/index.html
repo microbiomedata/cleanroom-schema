@@ -202,7 +202,6 @@
       DataListCollection : biosample_list
       DataListCollection : cbfs_list
       DataListCollection : frs_list
-      DataListCollection : relations_list
 
 </div>
 <!-- no inheritance hierarchy -->
@@ -232,12 +231,6 @@
 <tr>
 <td><a href="../cbfs_list/">cbfs_list</a></td>
 <td>0..* <br/> <a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../relations_list/">relations_list</a></td>
-<td>0..* <br/> <a href="../ReifiedRelationship/">ReifiedRelationship</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -298,13 +291,6 @@ attributes:
     multivalued: true
     range: CollectingBiosamplesFromSite
     inlined: true
-  relations_list:
-    name: relations_list
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
-    rank: 1000
-    multivalued: true
-    range: ReifiedRelationship
-    inlined: true
 
 </code></pre>
 </details>
@@ -348,17 +334,6 @@ attributes:
     domain_of:
     - DataListCollection
     range: CollectingBiosamplesFromSite
-    inlined: true
-  relations_list:
-    name: relations_list
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
-    rank: 1000
-    multivalued: true
-    alias: relations_list
-    owner: DataListCollection
-    domain_of:
-    - DataListCollection
-    range: ReifiedRelationship
     inlined: true
 
 </code></pre>

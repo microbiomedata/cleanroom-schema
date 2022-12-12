@@ -152,6 +152,16 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+    Usages
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#comments">
+    Comments
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -200,10 +210,10 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-site">Class: Site</h1>
-<p>URI: <a href="https://purl.obolibrary.org/obo/BFO_0000029">BFO:0000029</a></p>
+<p>URI: <a href="https://example.com/biosample_relations/cleanroom-schema/Site">cleanroom_schema:Site</a></p>
 <div class="mermaid"> classDiagram
     class Site
-      ImmaterialEntity &lt;|-- Site
+      MaterialEntity &lt;|-- Site
 
       Site : description
       Site : id
@@ -220,7 +230,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedThing/">NamedThing</a><ul>
-<li><a href="../ImmaterialEntity/">ImmaterialEntity</a><ul>
+<li><a href="../MaterialEntity/">MaterialEntity</a><ul>
 <li><strong>Site</strong><ul>
 <li><a href="../FieldResearchSite/">FieldResearchSite</a></li>
 </ul>
@@ -242,6 +252,12 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
+<td>A unique identifier for a thing</td>
+<td><a href="../NamedThing/">NamedThing</a></td>
+</tr>
+<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> NONE</td>
 <td>A human-readable name for a thing</td>
@@ -253,14 +269,31 @@
 <td>A human-readable description for a thing</td>
 <td><a href="../NamedThing/">NamedThing</a></td>
 </tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
 <tr>
-<td><a href="../id/">id</a></td>
-<td>1..1 <br/> <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a></td>
-<td>A unique identifier for a thing</td>
-<td><a href="../NamedThing/">NamedThing</a></td>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../CollectingBiosamplesFromSite/">CollectingBiosamplesFromSite</a></td>
+<td><a href="../has_input/">has_input</a></td>
+<td>range</td>
+<td><a href="./">Site</a></td>
 </tr>
 </tbody>
 </table>
+<h2 id="comments">Comments</h2>
+<ul>
+<li>BCO sample collection site</li>
+</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -277,7 +310,7 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>BFO:0000029</td>
+<td>cleanroom_schema:Site</td>
 </tr>
 <tr>
 <td>native</td>
@@ -291,10 +324,11 @@
 <details>
 <pre><code class="language-yaml">name: Site
 title: Site
+comments:
+- BCO sample collection site
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: ImmaterialEntity
-class_uri: BFO:0000029
+is_a: MaterialEntity
 
 </code></pre>
 </details>
@@ -302,9 +336,11 @@ class_uri: BFO:0000029
 <details>
 <pre><code class="language-yaml">name: Site
 title: Site
+comments:
+- BCO sample collection site
 from_schema: https://w3id.org/microbiomedata/cleanroom-schema
 rank: 1000
-is_a: ImmaterialEntity
+is_a: MaterialEntity
 attributes:
   id:
     name: id
@@ -340,7 +376,6 @@ attributes:
     domain_of:
     - NamedThing
     range: string
-class_uri: BFO:0000029
 
 </code></pre>
 </details>
