@@ -1,8 +1,6 @@
-BASE <https://example.com/biosample_relations/cleanroom-schema/>
+BASE <https://example.com/cleanroom-schema/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
-PREFIX BFO: <https://purl.obolibrary.org/obo/BFO_>
-PREFIX OBI: <https://purl.obolibrary.org/obo/OBI_>
 PREFIX linkml: <https://w3id.org/linkml/>
 PREFIX schema: <https://schema.org/>
 
@@ -37,9 +35,25 @@ linkml:Objectidentifier IRI
 
 linkml:Nodeidentifier NONLITERAL
 
+<Agent> CLOSED {
+    (  $<Agent_tes> (  &<NamedThing_tes> ;
+          rdf:type [ schema:Thing ] ?
+       ) ;
+       rdf:type [ <Agent> ]
+    )
+}
+
+<AnalyticalSample> CLOSED {
+    (  $<AnalyticalSample_tes> (  &<MaterialEntity_tes> ;
+          rdf:type [ <MaterialEntity> ] ?
+       ) ;
+       rdf:type [ <AnalyticalSample> ]
+    )
+}
+
 <Biosample> CLOSED {
-    (  $<Biosample_tes> (  &<NamedThing_tes> ;
-          rdf:type [ schema:Thing ] ? ;
+    (  $<Biosample_tes> (  &<MaterialEntity_tes> ;
+          rdf:type [ <MaterialEntity> ] ? ;
           <collected_from> @<FieldResearchSite> ?
        ) ;
        rdf:type [ <Biosample> ]
@@ -48,11 +62,11 @@ linkml:Nodeidentifier NONLITERAL
 
 <CollectingBiosamplesFromSite> CLOSED {
     (  $<CollectingBiosamplesFromSite_tes> (  &<PlannedProcess_tes> ;
-          rdf:type [ OBI:0000011 ] ? ;
-          <site> @<FieldResearchSite> ? ;
-          <biosamples> @<Biosample> *
+          rdf:type [ <https://purl.obolibrary.org/obo/OBI_0000011> ] ? ;
+          <has_inputs> @<Site> + ;
+          <has_outputs> @<Biosample> +
        ) ;
-       rdf:type [ OBI:0000011 ]
+       rdf:type [ <CollectingBiosamplesFromSite> ]
     )
 }
 
@@ -60,7 +74,7 @@ linkml:Nodeidentifier NONLITERAL
     (  $<DataListCollection_tes> (  <biosample_list> @<Biosample> * ;
           <frs_list> @<FieldResearchSite> * ;
           <cbfs_list> @<CollectingBiosamplesFromSite> * ;
-          <relations_list> @<ReifiedRelationship> *
+          <nt_list> @<NamedThing> *
        ) ;
        rdf:type [ <DataListCollection> ] ?
     )
@@ -68,88 +82,53 @@ linkml:Nodeidentifier NONLITERAL
 
 <FieldResearchSite> CLOSED {
     (  $<FieldResearchSite_tes> (  &<Site_tes> ;
-          rdf:type [ BFO:0000029 ] ?
+          rdf:type [ <Site> ] ?
        ) ;
        rdf:type [ <FieldResearchSite> ]
     )
 }
-
-<ImmaterialEntity>  (
-    CLOSED {
-       (  $<ImmaterialEntity_tes> (  &<NamedThing_tes> ;
-             rdf:type [ schema:Thing ] ?
-          ) ;
-          rdf:type [ BFO:0000141 ]
-       )
-    } OR @<Site>
-)
 
 <MaterialEntity>  (
     CLOSED {
        (  $<MaterialEntity_tes> (  &<NamedThing_tes> ;
              rdf:type [ schema:Thing ] ?
           ) ;
-          rdf:type [ BFO:0000040 ]
+          rdf:type [ <MaterialEntity> ]
        )
-    } OR @<Specimen>
+    } OR @<AnalyticalSample> OR @<Biosample> OR @<Site>
 )
-
-<MaterialSample> CLOSED {
-    (  $<MaterialSample_tes> (  &<Specimen_tes> ;
-          rdf:type [ OBI:0100051 ] ?
-       ) ;
-       rdf:type [ OBI:0000747 ]
-    )
-}
 
 <NamedThing>  (
     CLOSED {
-       (  $<NamedThing_tes> (  schema:name @linkml:String ? ;
-             schema:description @linkml:String ?
+       (  $<NamedThing_tes> (  <name> @linkml:String ? ;
+             <description> @linkml:String ?
           ) ;
           rdf:type [ schema:Thing ]
        )
-    } OR @<Biosample> OR @<ImmaterialEntity> OR @<MaterialEntity> OR @<PlannedProcess>
+    } OR @<Agent> OR @<MaterialEntity> OR @<PlannedProcess>
 )
 
 <PlannedProcess>  (
     CLOSED {
        (  $<PlannedProcess_tes> (  &<NamedThing_tes> ;
-             rdf:type [ schema:Thing ] ?
+             rdf:type [ schema:Thing ] ? ;
+             <has_inputs> @<NamedThing> * ;
+             <has_outputs> @<NamedThing> * ;
+             <participating_agent> @<Agent> ?
           ) ;
-          rdf:type [ OBI:0000011 ]
+          rdf:type [ <https://purl.obolibrary.org/obo/OBI_0000011> ]
        )
     } OR @<CollectingBiosamplesFromSite>
 )
 
-<ReifiedRelationship> CLOSED {
-    (  $<ReifiedRelationship_tes> (  rdf:subject @<NamedThing> ? ;
-          rdf:predicate @linkml:String ? ;
-          rdf:object @<NamedThing> ? ;
-          <notes> @linkml:String ?
-       ) ;
-       rdf:type [ rdf:Statement ] ?
-    )
-}
-
 <Site>  (
     CLOSED {
-       (  $<Site_tes> (  &<ImmaterialEntity_tes> ;
-             rdf:type [ BFO:0000141 ] ?
+       (  $<Site_tes> (  &<MaterialEntity_tes> ;
+             rdf:type [ <MaterialEntity> ] ?
           ) ;
-          rdf:type [ BFO:0000029 ]
+          rdf:type [ <Site> ]
        )
     } OR @<FieldResearchSite>
-)
-
-<Specimen>  (
-    CLOSED {
-       (  $<Specimen_tes> (  &<MaterialEntity_tes> ;
-             rdf:type [ BFO:0000040 ] ?
-          ) ;
-          rdf:type [ OBI:0100051 ]
-       )
-    } OR @<MaterialSample>
 )
 
 

@@ -1,3 +1,15 @@
+message Agent
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
+message AnalyticalSample
+ {
+  uriorcurie id = 0
+  string name = 0
+  string description = 0
+ }
 message Biosample
  {
   uriorcurie id = 0
@@ -10,8 +22,9 @@ message CollectingBiosamplesFromSite
   uriorcurie id = 0
   string name = 0
   string description = 0
-  fieldResearchSite site = 0
- repeated  biosample biosamples = 0
+  agent participatingAgent = 0
+ repeated  site hasInputs = 0
+ repeated  biosample hasOutputs = 0
  }
 // A datastructure that can contain lists of instances from any selected classes in the schema
 message DataListCollection
@@ -19,7 +32,7 @@ message DataListCollection
  repeated  biosample biosampleList = 0
  repeated  fieldResearchSite frsList = 0
  repeated  collectingBiosamplesFromSite cbfsList = 0
- repeated  reifiedRelationship relationsList = 0
+ repeated  namedThing ntList = 0
  }
 // A site, outside of a laboratory, from which biosamples may be collected.
 message FieldResearchSite
@@ -28,19 +41,7 @@ message FieldResearchSite
   string name = 0
   string description = 0
  }
-message ImmaterialEntity
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
- }
 message MaterialEntity
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
- }
-message MaterialSample
  {
   uriorcurie id = 0
   string name = 0
@@ -58,21 +59,11 @@ message PlannedProcess
   uriorcurie id = 0
   string name = 0
   string description = 0
- }
-message ReifiedRelationship
- {
-  namedThing subject = 0
-  string predicate = 0
-  namedThing object = 0
-  string notes = 0
+ repeated  namedThing hasInputs = 0
+ repeated  namedThing hasOutputs = 0
+  agent participatingAgent = 0
  }
 message Site
- {
-  uriorcurie id = 0
-  string name = 0
-  string description = 0
- }
-message Specimen
  {
   uriorcurie id = 0
   string name = 0

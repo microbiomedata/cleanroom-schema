@@ -1,21 +1,28 @@
 
 
-CREATE TABLE "DataListCollection" (
-	biosample_list TEXT, 
-	frs_list TEXT, 
-	cbfs_list TEXT, 
-	relations_list TEXT, 
-	PRIMARY KEY (biosample_list, frs_list, cbfs_list, relations_list)
-);
-
-CREATE TABLE "FieldResearchSite" (
+CREATE TABLE "Agent" (
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE "ImmaterialEntity" (
+CREATE TABLE "AnalyticalSample" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id)
+);
+
+CREATE TABLE "DataListCollection" (
+	biosample_list TEXT, 
+	frs_list TEXT, 
+	cbfs_list TEXT, 
+	nt_list TEXT, 
+	PRIMARY KEY (biosample_list, frs_list, cbfs_list, nt_list)
+);
+
+CREATE TABLE "FieldResearchSite" (
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -29,35 +36,7 @@ CREATE TABLE "MaterialEntity" (
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE "MaterialSample" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id)
-);
-
 CREATE TABLE "NamedThing" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE "PlannedProcess" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE "Site" (
-	id TEXT NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id)
-);
-
-CREATE TABLE "Specimen" (
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -77,18 +56,28 @@ CREATE TABLE "CollectingBiosamplesFromSite" (
 	id TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
-	site TEXT, 
-	biosamples TEXT, 
+	participating_agent TEXT, 
+	has_outputs TEXT NOT NULL, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(site) REFERENCES "FieldResearchSite" (id)
+	FOREIGN KEY(participating_agent) REFERENCES "Agent" (id)
 );
 
-CREATE TABLE "ReifiedRelationship" (
-	subject TEXT, 
-	predicate TEXT, 
-	object TEXT, 
-	notes TEXT, 
-	PRIMARY KEY (subject, predicate, object, notes), 
-	FOREIGN KEY(subject) REFERENCES "NamedThing" (id), 
-	FOREIGN KEY(object) REFERENCES "NamedThing" (id)
+CREATE TABLE "PlannedProcess" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	has_inputs TEXT, 
+	has_outputs TEXT, 
+	participating_agent TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(participating_agent) REFERENCES "Agent" (id)
+);
+
+CREATE TABLE "Site" (
+	id TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	"CollectingBiosamplesFromSite_id" TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY("CollectingBiosamplesFromSite_id") REFERENCES "CollectingBiosamplesFromSite" (id)
 );

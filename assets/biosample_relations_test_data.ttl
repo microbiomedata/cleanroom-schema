@@ -1,41 +1,35 @@
-@prefix ns1: <https://example.com/biosample_relations/cleanroom-schema/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix schema: <https://schema.org/> .
+@prefix GOLD: <http://identifiers.org/gold/> .
+@prefix cleanroom_schema: <https://example.com/cleanroom-schema/> .
 
-ns1:cbfs1 a <https://purl.obolibrary.org/obo/OBI_0000011> ;
-    ns1:biosamples <http://identifiers.org/gold/Gb0291582>,
-        <http://identifiers.org/gold/Gb0291692>,
-        <http://identifiers.org/gold/Gb0305833> ;
-    ns1:site <http://identifiers.org/gold/BESC-13-CL1_35_33> ;
-    schema:name "Collection of biosamples from BESC-13-CL1_35_33" .
+cleanroom_schema:cbfs1 a cleanroom_schema:CollectingBiosamplesFromSite ;
+    cleanroom_schema:has_inputs GOLD:BESC-13-CL1_35_33 ;
+    cleanroom_schema:has_outputs GOLD:Gb0291582,
+        GOLD:Gb0291692,
+        GOLD:Gb0305833 ;
+    cleanroom_schema:name "Collection of biosamples from BESC-13-CL1_35_33" .
 
-<http://identifiers.org/gold/Gb0291582> a ns1:Biosample ;
-    ns1:collected_from <http://identifiers.org/gold/BESC-13-CL1_35_33> ;
-    schema:description "Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA" ;
-    schema:name "Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33" .
+GOLD:Gb0291582 a cleanroom_schema:Biosample ;
+    cleanroom_schema:collected_from GOLD:BESC-13-CL1_35_33 ;
+    cleanroom_schema:description "Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA" ;
+    cleanroom_schema:name "Bulk soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33" .
 
-<http://identifiers.org/gold/Gb0291692> a ns1:Biosample ;
-    ns1:collected_from <http://identifiers.org/gold/BESC-13-CL1_35_33> ;
-    schema:description "Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA" ;
-    schema:name "Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33" .
+GOLD:Gb0291692 a cleanroom_schema:Biosample ;
+    cleanroom_schema:collected_from GOLD:BESC-13-CL1_35_33 ;
+    cleanroom_schema:description "Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA" ;
+    cleanroom_schema:name "Rhizosphere soil microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33" .
 
-<http://identifiers.org/gold/Gb0305833> a ns1:Biosample ;
-    ns1:collected_from <http://identifiers.org/gold/BESC-13-CL1_35_33> ;
-    schema:description "Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA" ;
-    schema:name "Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33 endosphere" .
+GOLD:Gb0305833 a cleanroom_schema:Biosample ;
+    cleanroom_schema:collected_from GOLD:BESC-13-CL1_35_33 ;
+    cleanroom_schema:description "Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA" ;
+    cleanroom_schema:name "Root microbial communities from poplar common garden site in Clatskanie, Oregon, USA - BESC-13-CL1_35_33 endosphere" .
 
-<http://identifiers.org/gold/BESC-13-CL1_35_33> a ns1:FieldResearchSite ;
-    schema:description "Some poplar tree NOS" .
+GOLD:BESC-13-CL1_35_33 a cleanroom_schema:FieldResearchSite ;
+    cleanroom_schema:description "Some poplar tree NOS" .
 
-[] a ns1:DataListCollection ;
-    ns1:biosample_list <http://identifiers.org/gold/Gb0291582>,
-        <http://identifiers.org/gold/Gb0291692>,
-        <http://identifiers.org/gold/Gb0305833> ;
-    ns1:cbfs_list ns1:cbfs1 ;
-    ns1:frs_list <http://identifiers.org/gold/BESC-13-CL1_35_33> ;
-    ns1:relations_list [ a rdf:Statement ;
-            rdf:object <http://identifiers.org/gold/BESC-13-CL1_35_33> ;
-            rdf:predicate "collected_from" ;
-            rdf:subject <http://identifiers.org/gold/Gb0305833> ;
-            ns1:notes "This is a test of a non-binary, non-process relation between a biosample and a field research site" ] .
+[] a cleanroom_schema:DataListCollection ;
+    cleanroom_schema:biosample_list GOLD:Gb0291582,
+        GOLD:Gb0291692,
+        GOLD:Gb0305833 ;
+    cleanroom_schema:cbfs_list cleanroom_schema:cbfs1 ;
+    cleanroom_schema:frs_list GOLD:BESC-13-CL1_35_33 .
 
