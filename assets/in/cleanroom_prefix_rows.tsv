@@ -1,0 +1,8 @@
+prefix	prefix_reference
+> prefix	prefix_reference
+GOLD	http://identifiers.org/gold/
+OBI	https://purl.obolibrary.org/obo/OBI_
+cleanroom_schema	https://example.com/cleanroom-schema/
+rdf	http://www.w3.org/1999/02/22-rdf-syntax-ns#
+schema	https://schema.org/
+xsd	http://www.w3.org/2001/XMLSchema#

@@ -1,8 +1,8 @@
 # Auto generated from cleanroom_schema.yaml by pythongen.py version: 0.9.0
-# Generation date: 2022-12-12T11:33:46
+# Generation date: 2022-12-13T09:29:02
 # Schema: cleanroom-schema
 #
-# id: https://w3id.org/microbiomedata/cleanroom-schema
+# id: https://example.com/cleanroom-schema/cleanroom-schema
 # description: Cleanroom reboot of NMDC schema
 # license: MIT
 

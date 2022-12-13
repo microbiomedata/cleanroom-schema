@@ -16,22 +16,6 @@ cleanroom_schema:AnalyticalSample a owl:Class,
     dcterms:title "Analytical Sample" ;
     rdfs:subClassOf cleanroom_schema:MaterialEntity .
 
-cleanroom_schema:cleanroom-schema a owl:Ontology ;
-    rdfs:label "cleanroom-schema" ;
-    IAO:0000700 cleanroom_schema:DataListCollection,
-        cleanroom_schema:NamedThing ;
-    dcterms:license "MIT" ;
-    dcterms:title "cleanroom-schema" ;
-    rdfs:seeAlso "https://github.com/microbiomedata/nmdc-schema/issues/518",
-        "https://microbiomedata.github.io/cleanroom-schema" ;
-    skos:note "how will data be collected (DataHarmonizer?)",
-        "how will data be displayed?" ;
-    linkml:generation_date "2022-12-13T09:29:00" ;
-    linkml:metamodel_version "1.7.0" ;
-    linkml:source_file "cleanroom_schema.yaml" ;
-    linkml:source_file_date "2022-12-12T17:24:48" ;
-    linkml:source_file_size 4254 .
-
 cleanroom_schema:type a owl:ObjectProperty,
         linkml:SlotDefinition ;
     rdfs:label "type" ;
@@ -49,21 +33,37 @@ linkml:TypeDefinition a owl:Class ;
 linkml:topValue a owl:DatatypeProperty ;
     rdfs:label "value" .
 
+<https://w3id.org/microbiomedata/cleanroom-schema> a owl:Ontology ;
+    rdfs:label "cleanroom-schema" ;
+    IAO:0000700 cleanroom_schema:DataListCollection,
+        cleanroom_schema:NamedThing ;
+    dcterms:license "MIT" ;
+    dcterms:title "cleanroom-schema" ;
+    rdfs:seeAlso "https://github.com/microbiomedata/nmdc-schema/issues/518",
+        "https://microbiomedata.github.io/cleanroom-schema" ;
+    skos:note "how will data be collected (DataHarmonizer?)",
+        "how will data be displayed?" ;
+    linkml:generation_date "2022-12-12T11:33:43" ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:source_file "cleanroom_schema.yaml" ;
+    linkml:source_file_date "2022-12-12T11:27:40" ;
+    linkml:source_file_size 4249 .
+
 cleanroom_schema:DataListCollection a owl:Class,
         linkml:ClassDefinition ;
     rdfs:label "DataListCollection" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom cleanroom_schema:CollectingBiosamplesFromSite ;
-            owl:onProperty cleanroom_schema:cbfs_list ],
+            owl:allValuesFrom cleanroom_schema:FieldResearchSite ;
+            owl:onProperty cleanroom_schema:frs_list ],
         [ a owl:Restriction ;
             owl:allValuesFrom cleanroom_schema:NamedThing ;
             owl:onProperty cleanroom_schema:nt_list ],
         [ a owl:Restriction ;
-            owl:allValuesFrom cleanroom_schema:Biosample ;
-            owl:onProperty cleanroom_schema:biosample_list ],
+            owl:allValuesFrom cleanroom_schema:CollectingBiosamplesFromSite ;
+            owl:onProperty cleanroom_schema:cbfs_list ],
         [ a owl:Restriction ;
-            owl:allValuesFrom cleanroom_schema:FieldResearchSite ;
-            owl:onProperty cleanroom_schema:frs_list ] ;
+            owl:allValuesFrom cleanroom_schema:Biosample ;
+            owl:onProperty cleanroom_schema:biosample_list ] ;
     skos:definition "A datastructure that can contain lists of instances from any selected classes in the schema" .
 
 cleanroom_schema:PlannedProcess a owl:Class,
@@ -211,15 +211,15 @@ cleanroom_schema:NamedThing a owl:Class,
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality 1 ;
             owl:onClass linkml:String ;
+            owl:onProperty cleanroom_schema:name ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality 1 ;
+            owl:onClass linkml:String ;
             owl:onProperty cleanroom_schema:description ],
         [ a owl:Restriction ;
             owl:onClass linkml:Uriorcurie ;
             owl:onProperty cleanroom_schema:id ;
-            owl:qualifiedCardinality 1 ],
-        [ a owl:Restriction ;
-            owl:maxQualifiedCardinality 1 ;
-            owl:onClass linkml:String ;
-            owl:onProperty cleanroom_schema:name ] ;
+            owl:qualifiedCardinality 1 ] ;
     skos:definition "A generic grouping for any identifiable entity" ;
     skos:exactMatch schema:Thing .
 
