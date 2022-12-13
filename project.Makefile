@@ -90,7 +90,8 @@ project/owl/cs.rdf.owl: src/cleanroom_schema/schema/cleanroom_schema.yaml
 		--format xml \
 		--output $@ $<
 
-assets/csrg.ttl: project/owl/cs.rdf.owl
+assets/csrg.ttl: project/owl/cleanroom_schema.owl.ttl
 	/home/mark/gitrepos/relation-graph/cli/target/universal/stage/bin/relation-graph \
 		--ontology-file $< \
+		--output-subclasses true \
 		--output-file $@

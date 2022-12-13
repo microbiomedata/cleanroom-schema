@@ -59,3 +59,21 @@ Here's the distribution of commits per person
 first NMDC schema commit: 
 https://github.com/microbiomedata/nmdc-schema/commit/8da916f6d91f0ff2b343f31f861ff8c698d84bdb
 
+----
+
+# Using this package
+
+## Dataclasses
+
+```python
+from cleanroom_schema.datamodel import Biosample
+bs = Biosample(id="bs:1")
+```
+
+## Sample commandline script that accesses bundled data/schema files
+
+```shell
+test_publishability
+```
+
+which is defined as `cleanroom_schema.test_publishability:print_nt` in `pyproject.toml`
