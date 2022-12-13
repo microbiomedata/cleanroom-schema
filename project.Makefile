@@ -26,6 +26,7 @@ assets/biosample_relations_test_data.ttl: src/cleanroom_schema/schema/cleanroom_
 		--output $@ \
 		--schema $^
 
+
 assets/biosample_instances.csv: src/cleanroom_schema/schema/cleanroom_schema.yaml src/data/examples/biosample_relations_test_data.yaml
 	$(RUN) linkml-convert \
 		--target-class DataListCollection \
@@ -47,6 +48,7 @@ tsvs: assets/biosample_list.tsv  assets/frs_list.tsv assets/cbfs_list.tsv
 #		--db $@ \
 #		--target-class DataListCollection \
 #		--schema $^
+
 
 test_publishability:
 	$(RUN) test_publishability
