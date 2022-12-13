@@ -281,7 +281,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/microbiomedata/cleanroom-schema</li>
+<li>from schema: https://example.com/cleanroom-schema/cleanroom-schema</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -307,7 +307,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Agent
-from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+from_schema: https://example.com/cleanroom-schema/cleanroom-schema
 rank: 1000
 is_a: NamedThing
 
@@ -316,14 +316,14 @@ is_a: NamedThing
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Agent
-from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+from_schema: https://example.com/cleanroom-schema/cleanroom-schema
 rank: 1000
 is_a: NamedThing
 attributes:
   id:
     name: id
     description: A unique identifier for a thing
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    from_schema: https://example.com/cleanroom-schema/cleanroom-schema
     rank: 1000
     identifier: true
     alias: id
@@ -334,7 +334,7 @@ attributes:
   name:
     name: name
     description: A human-readable name for a thing
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    from_schema: https://example.com/cleanroom-schema/cleanroom-schema
     rank: 1000
     alias: name
     owner: Agent
@@ -344,7 +344,7 @@ attributes:
   description:
     name: description
     description: A human-readable description for a thing
-    from_schema: https://w3id.org/microbiomedata/cleanroom-schema
+    from_schema: https://example.com/cleanroom-schema/cleanroom-schema
     rank: 1000
     alias: description
     owner: Agent
