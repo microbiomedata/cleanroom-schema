@@ -10,7 +10,7 @@
     "https://microbiomedata.github.io/cleanroom-schema",
     "https://github.com/microbiomedata/nmdc-schema/issues/518"
   ],
-  "id": "https://w3id.org/microbiomedata/cleanroom-schema",
+  "id": "https://example.com/cleanroom-schema/cleanroom-schema",
   "imports": [
     "linkml:types"
   ],
@@ -223,7 +223,7 @@
       "name": "id",
       "definition_uri": "https://example.com/cleanroom-schema/id",
       "description": "A unique identifier for a thing",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/id",
       "identifier": true,
       "owner": "NamedThing",
@@ -238,7 +238,7 @@
       "name": "name",
       "definition_uri": "https://example.com/cleanroom-schema/name",
       "description": "A human-readable name for a thing",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/name",
       "owner": "NamedThing",
       "domain_of": [
@@ -251,7 +251,7 @@
       "name": "description",
       "definition_uri": "https://example.com/cleanroom-schema/description",
       "description": "A human-readable description for a thing",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/description",
       "owner": "NamedThing",
       "domain_of": [
@@ -268,7 +268,7 @@
         "try designates_type (but wouldn't work for enumerated ontology classes)",
         "be conservative about assigning rdf:type as the slot uri"
       ],
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/type",
       "range": "string",
       "@type": "SlotDefinition"
@@ -283,7 +283,7 @@
       "comments": [
         "this illustrates implementing a Biosample relation with a (binary) slot"
       ],
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "domain": "Biosample",
       "slot_uri": "https://example.com/cleanroom-schema/collected_from",
       "owner": "Biosample",
@@ -296,7 +296,7 @@
     {
       "name": "has_inputs",
       "definition_uri": "https://example.com/cleanroom-schema/has_inputs",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/has_inputs",
       "multivalued": true,
       "owner": "CollectingBiosamplesFromSite",
@@ -310,7 +310,7 @@
     {
       "name": "has_outputs",
       "definition_uri": "https://example.com/cleanroom-schema/has_outputs",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/has_outputs",
       "multivalued": true,
       "owner": "CollectingBiosamplesFromSite",
@@ -324,7 +324,7 @@
     {
       "name": "participating_agent",
       "definition_uri": "https://example.com/cleanroom-schema/participating_agent",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/participating_agent",
       "owner": "PlannedProcess",
       "domain_of": [
@@ -335,7 +335,7 @@
     },
     {
       "name": "dataListCollection__biosample_list",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/biosample_list",
       "multivalued": true,
       "alias": "biosample_list",
@@ -350,7 +350,7 @@
     },
     {
       "name": "dataListCollection__frs_list",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/frs_list",
       "multivalued": true,
       "alias": "frs_list",
@@ -365,7 +365,7 @@
     },
     {
       "name": "dataListCollection__cbfs_list",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/cbfs_list",
       "multivalued": true,
       "alias": "cbfs_list",
@@ -380,7 +380,7 @@
     },
     {
       "name": "dataListCollection__nt_list",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slot_uri": "https://example.com/cleanroom-schema/nt_list",
       "multivalued": true,
       "alias": "nt_list",
@@ -396,7 +396,7 @@
     {
       "name": "CollectingBiosamplesFromSite_has_inputs",
       "definition_uri": "https://example.com/cleanroom-schema/has_inputs",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "is_a": "has_inputs",
       "domain": "CollectingBiosamplesFromSite",
       "slot_uri": "https://example.com/cleanroom-schema/has_inputs",
@@ -415,7 +415,7 @@
     {
       "name": "CollectingBiosamplesFromSite_has_outputs",
       "definition_uri": "https://example.com/cleanroom-schema/has_outputs",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "is_a": "has_outputs",
       "domain": "CollectingBiosamplesFromSite",
       "slot_uri": "https://example.com/cleanroom-schema/has_outputs",
@@ -437,7 +437,7 @@
       "name": "NamedThing",
       "definition_uri": "https://example.com/cleanroom-schema/NamedThing",
       "description": "A generic grouping for any identifiable entity",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "mappings": [
         "schema:Thing"
       ],
@@ -454,7 +454,7 @@
       "name": "MaterialEntity",
       "definition_uri": "https://example.com/cleanroom-schema/MaterialEntity",
       "title": "Material Entity",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "aliases": [
         "Material",
         "Physical entity"
@@ -473,7 +473,7 @@
       "name": "Biosample",
       "definition_uri": "https://example.com/cleanroom-schema/Biosample",
       "title": "Biosample",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "is_a": "MaterialEntity",
       "slots": [
         "id",
@@ -489,7 +489,7 @@
       "name": "AnalyticalSample",
       "definition_uri": "https://example.com/cleanroom-schema/AnalyticalSample",
       "title": "Analytical Sample",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "is_a": "MaterialEntity",
       "slots": [
         "id",
@@ -507,7 +507,7 @@
       "comments": [
         "BCO sample collection site ?"
       ],
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "is_a": "MaterialEntity",
       "slots": [
         "id",
@@ -529,7 +529,7 @@
         "In Bioscales, one might say that rhizosphere soil and bulk soil from around the same plant were obtained at the same site. In this case, the site would correspond to one tree.",
         "might correspond to GOLD's identifier on a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833"
       ],
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "aliases": [
         "research plot"
       ],
@@ -547,7 +547,7 @@
       "name": "PlannedProcess",
       "definition_uri": "https://example.com/cleanroom-schema/PlannedProcess",
       "title": "Planned Process",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "mappings": [
         "OBI:0000011"
       ],
@@ -571,7 +571,7 @@
       "comments": [
         "this illustrates implementing a Biosample relation with a process class"
       ],
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "is_a": "PlannedProcess",
       "slots": [
         "id",
@@ -588,7 +588,7 @@
     {
       "name": "Agent",
       "definition_uri": "https://example.com/cleanroom-schema/Agent",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "is_a": "NamedThing",
       "slots": [
         "id",
@@ -603,7 +603,7 @@
       "name": "DataListCollection",
       "definition_uri": "https://example.com/cleanroom-schema/DataListCollection",
       "description": "A datastructure that can contain lists of instances from any selected classes in the schema",
-      "from_schema": "https://w3id.org/microbiomedata/cleanroom-schema",
+      "from_schema": "https://example.com/cleanroom-schema/cleanroom-schema",
       "slots": [
         "dataListCollection__biosample_list",
         "dataListCollection__frs_list",
@@ -648,9 +648,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "cleanroom_schema.yaml",
-  "source_file_date": "2022-12-12T11:27:40",
-  "source_file_size": 4249,
-  "generation_date": "2022-12-12T11:33:36",
+  "source_file_date": "2022-12-12T17:24:48",
+  "source_file_size": 4254,
+  "generation_date": "2022-12-13T09:28:53",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/cleanroom_schema.context.jsonld",

@@ -1,0 +1,1 @@
+{ 'dictionary_item_added': [root['slots']['biosample_list'], root['slots']['cbfs_list'], root['slots']['frs_list'], root['slots']['nt_list']]}

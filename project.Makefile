@@ -84,3 +84,13 @@ assets/schemasheets_deepdiff.txt: src/cleanroom_schema/schema/cleanroom_schema.y
 		--exclude-regex-paths "enums" \
 		--exclude-regex-paths "from_schema" \
 		--exclude-regex-paths "slot_usage" $^ > $@
+
+project/owl/cs.rdf.owl: src/cleanroom_schema/schema/cleanroom_schema.yaml
+	$(RUN) gen-owl \
+		--format xml \
+		--output $@ $<
+
+assets/csrg.ttl: project/owl/cs.rdf.owl
+	/home/mark/gitrepos/relation-graph/cli/target/universal/stage/bin/relation-graph \
+		--ontology-file $< \
+		--output-file $@

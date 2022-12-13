@@ -1,0 +1,31 @@
+class	slot	multivalued	range	inlined_as_list	required
+> class	slot	multivalued	range	inlined_as_list	required
+>					
+	id		uriorcurie		
+	name				
+	description				
+	type				
+	collected_from		FieldResearchSite		
+	has_inputs	true	NamedThing		
+	has_outputs	true	NamedThing		
+	participating_agent		Agent		
+	biosample_list	true	Biosample	true	
+	frs_list	true	FieldResearchSite	true	
+	cbfs_list	true	CollectingBiosamplesFromSite	true	
+	nt_list	true	NamedThing	true	
+NamedThing					
+MaterialEntity					
+Biosample					
+AnalyticalSample					
+Site					
+FieldResearchSite					
+PlannedProcess					
+CollectingBiosamplesFromSite					
+CollectingBiosamplesFromSite	has_inputs		Site		true
+CollectingBiosamplesFromSite	has_outputs		Biosample		true
+Agent					
+DataListCollection					
+DataListCollection	biosample_list	true	Biosample	true	
+DataListCollection	frs_list	true	FieldResearchSite	true	
+DataListCollection	cbfs_list	true	CollectingBiosamplesFromSite	true	
+DataListCollection	nt_list	true	NamedThing	true	

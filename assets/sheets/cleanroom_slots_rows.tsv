@@ -1,0 +1,15 @@
+slot	description	slot_uri	aliases	is_a	title	comments	identifier	range	domain	todos	multivalued
+> slot	description	slot_uri	aliases	is_a	title	comments	identifier	range	domain	todos	multivalued
+>			"internal_separator: ""|"""			"internal_separator: ""|"""				"internal_separator: ""|"""	
+id	A unique identifier for a thing						true	uriorcurie			
+name	A human-readable name for a thing										
+description	A human-readable description for a thing										
+type	The type of a thing. Should be a local class name or an ontology class from a local enumeration					try designates_type (but wouldn't work for enumerated ontology classes)|be conservative about assigning rdf:type as the slot uri					
+collected_from	The Site from which a Biosample was collected					this illustrates implementing a Biosample relation with a (binary) slot		FieldResearchSite	Biosample	add an OBO slot_uri ?	
+has_inputs								NamedThing			true
+has_outputs								NamedThing			true
+participating_agent								Agent			
+biosample_list								Biosample			true
+frs_list								FieldResearchSite			true
+cbfs_list								CollectingBiosamplesFromSite			true
+nt_list								NamedThing			true

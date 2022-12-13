@@ -1,0 +1,13 @@
+class	description	slots	class_uri	aliases	is_a	title	comments	tree_root
+> class	description	slots	class_uri	aliases	is_a	title	comments	tree_root
+>		"internal_separator: ""|"""		"internal_separator: ""|"""			"internal_separator: ""|"""	
+NamedThing	A generic grouping for any identifiable entity	id|name|description	schema:Thing					
+MaterialEntity				Material|Physical entity	NamedThing	Material Entity		
+Biosample		collected_from			MaterialEntity	Biosample		
+AnalyticalSample					MaterialEntity	Analytical Sample		
+Site					MaterialEntity	Site	BCO sample collection site ?	
+FieldResearchSite	A site, outside of a laboratory, from which biosamples may be collected.			research plot	Site	Field Research Site	Provides grouping of biosamples at level that's more specific than belonging to the same study|be very clear that this could be part of a larger site|In Bioscales, one might say that rhizosphere soil and bulk soil from around the same plant were obtained at the same site. In this case, the site would correspond to one tree.|might correspond to GOLD's identifier on a page like https://gold.jgi.doe.gov/biosample?id=Gb0305833	
+PlannedProcess		has_inputs|has_outputs|participating_agent	OBI:0000011		NamedThing	Planned Process		
+CollectingBiosamplesFromSite		has_inputs|has_outputs			PlannedProcess	Collecting Biosamples From Site	this illustrates implementing a Biosample relation with a process class	
+Agent					NamedThing			
+DataListCollection	A datastructure that can contain lists of instances from any selected classes in the schema							true
